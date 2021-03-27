@@ -316,6 +316,10 @@ welcome area css
 	z-index: 1;
 
 }
+.community-sec{
+    background-color: #9ab8ff45;
+}
+
 
 .welcome-area.v4:before {
     content: "";
@@ -3111,7 +3115,7 @@ width: 80px;
   /*  box-shadow: 1px 3px 10px 0 rgba(0, 0, 0, 0.10)*/
 }
 .single-service i.fa {
-    font-size: 20px;
+    font-size: 37px;
     width: 60px;
     height: 60px;
     border: 1px solid #ddd;
@@ -3121,12 +3125,12 @@ width: 80px;
     -webkit-transition: .3s;
     transition: .3s
 }
-.single-service:hover i.fa {
+/* .single-service:hover i.fa {
     background-color: #0b0861;
     color: #fff;
     border-color: #0b0861;
     border-radius: 0;
-}
+} */
 .single-service i.fas {
     font-size: 20px;
     width: 60px;
@@ -3145,7 +3149,7 @@ width: 80px;
     border-radius: 0;
 }
 .single-service i.fab {
-    font-size: 20px;
+    font-size: 40px;
     width: 60px;
     height: 60px;
     border: 1px solid #ddd;
@@ -3155,12 +3159,12 @@ width: 80px;
     -webkit-transition: .3s;
     transition: .3s
 }
-.single-service:hover i.fab {
+/* .single-service:hover i.fab {
     background-color: #0b0861;
     color: #fff;
     border-color: #0b0861;
     border-radius: 0;
-}
+} */
 .single-service h4 {
     font-size: 20px;
     font-weight: 400;
@@ -3411,7 +3415,7 @@ color: white;
    text-transform:uppercase;
 }
 #what-we-do{
-  background-color: #000060;margin-top: 45px;
+ margin-top: 45px;
 }
 #what-we-do .card{
    padding: 3rem!important;
@@ -3480,6 +3484,7 @@ color: white;
 }*/
  .banner-content{
     margin-top: 70px;
+    margin-bottom: 30px;
     text-align: center;
    }
    .banner-content h1{
@@ -3757,6 +3762,7 @@ nav ul li label{
     }
     .banner-content {
         margin-top: 145px;
+        margin-bottom: 100px;
     }
     .footer-area {
         padding-top: 33px!important;
@@ -3882,6 +3888,7 @@ img {
     }
     .banner-content {
         margin-top: 245px;
+        margin-bottom: 140px;
     }
     .logo a {
         padding-left: 190px;
