@@ -57,6 +57,7 @@
                   <!--  <a href="http://marketplace.minical.io/"  target="_blank" class="headA" >Marketplace</a>  -->
                   <a href="contact.html" class="headA">Become a partner</a>
                   <a href="pricing.html" class="headA">Pricing</a>
+                  <a href="https://marketplace.minical.io/" class="headA">Marketplace</a>
                </div>
             </div>
             <div class="col-lg-4 col-md-4  d-none d-lg-block text-right btn-2 gapp">
@@ -89,6 +90,35 @@
             </div>
          </div>
       </div>
+
+
+      <section class="services pt-100 pb-50 pb-60" id="services">
+
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="learn_next">
+                     <h1 class="text-center">This Minimal Calendar </h1>
+                     <p class="text-center">powers hundreds of businesses around the world</p>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <center><img src="assets/img/booking.png"  id="img-weppt" /></center>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="bottom-btn" id="bttn-gap">
+                     <div class="btn-2">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
       <!--:::::welcome area end:::::::-->
       <!-- style="background-image: url(assets/img/ee5.png);" -->
       <!--:::::service area start:::::::-->
@@ -102,41 +132,11 @@
                </div>
             </div>
             <div class="row">
-               <div class="col-lg-4 col-md-6">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <!--   <i class="fa fa-book"></i> -->
-                     <h2>Intuitive Calendar</h2>
-                     <p>Simple interface that provides quick overview of your property.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <!-- <i class="fa fa-calendar"></i> -->
-                     <h2>Reports and Analytics</h2>
-                     <p>Get all kinds of reports which you can also export. </p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6">
-                  <div class="single-service">
-                      <h2>Custom Management</h2>
-                     <p>Manage customer profiles along with their account balances.</p>
-                  </div>
-               </div>
                <div class="col-lg-4 col-md-6" id="gapping">
                   <!-- Single Service -->
                   <div class="single-service">
                      <!-- <i class="fa fa-calendar"></i> -->
-                     <h2>Inventory</h2>
-                     <p>Control room availabilities of your property.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6" id="gapping">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <!-- <i class="fa fa-calendar"></i> -->
-                     <h2>Multi-language</h2>
+                     <h2>Multi-language support</h2>
                      <p>Customize and translate to any language all your content, including personalized emails.</p>
                   </div>
                </div>
@@ -144,6 +144,22 @@
                   <div class="single-service">
                      <h2>Extensions</h2>
                      <p>Explore the extensions that empower your business.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6" id="gapping">
+                  <!-- Single Service -->
+                  <div class="single-service">
+                     <!--   <i class="fa fa-book"></i> -->
+                     <h2>Intuitive Calendar</h2>
+                     <p>Simple interface that provides quick overview of your property.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6" id="gapping">
+                  <!-- Single Service -->
+                  <div class="single-service">
+                     <!-- <i class="fa fa-calendar"></i> -->
+                     <h2>Reports and Analytics</h2>
+                     <p>Get all kinds of reports which you can also export. </p>
                   </div>
                </div>
                <div class="col-lg-4 col-md-6" id="gapping">
@@ -217,35 +233,14 @@
 <code class="language-json">{
    "name": "Hotel",
    "version": "1.0.0",
-   "description": "",
    "dependencies": {
+      "todays_panel" : "1.0.0",
       "online_booking_engine" : "1.0.0",
-      "advance_deposit_report" : "1.0.0"
+      "advance_deposit_report" : "1.0.0",
+      "invoice_email" : "1.0.0",
+      "automated_night_audit" : "1.0.0"
    },
    "settings": {
-      "automatic_email_confirmation" : false,
-      "automatic_email_cancellation" : false,
-      "send_booking_notes" : false,
-      "additional_email" : { 
-         "send_copy_to_additional_emails" : false ,
-         "additional_company_emails"  :"Mail ID"
-         },
-      "send_invoice_email_automatically" : false,
-      "hide_room_name" : false,
-      "display_tooltip" : true,
-      "make_guest_field_mandatory" : false,
-      "include_cancelled_noshow_bookings" : true,
-      "hourly_booking_enabled" : false,
-      "allow_free_bookings" : false,
-      "allow_booking_cancelled_with_balance" : false,
-      "restrict_booking_dates_modification" : false,
-      "restrict_checkout_with_balance" : false,
-      "auto_no_show" : true,
-      "force_room_selection" : true,
-      "hide_forecast_charges" : false,
-      "is_total_balance_include_forecast" : true,
-      "show_guest_group_invoice" : false,
-      "enable_new_calendar" : false,
       "unit_name":{
          "singular": "room", 
          "plural" : "rooms" 
@@ -253,7 +248,10 @@
       "unit_type_name" :  {
          "singular":"room type",
          "plural": "room types"
-         }
+         },
+      "send_invoice_email_automatically" : true,
+      "display_tooltip" : true,
+      "is_total_balance_include_forecast" : true
    }
 }
     </code>
@@ -276,35 +274,12 @@
 <code class="language-json">{
    "name": "Hostel",
    "version": "1.0.0",
-   "description": "",
    "dependencies": {
-     "online_booking_engine" : "1.0.0",
-     "advance_deposit_report" : "1.0.0"
+      "online_booking_engine" : "1.0.0",
+      "todays_panel" : "1.0.0",
+      "invoice_email" : "1.0.0"      
    },
    "settings": {
-      "automatic_email_confirmation" : false,
-      "automatic_email_cancellation" : false,
-      "send_booking_notes" : false,
-      "additional_email" : { 
-         "send_copy_to_additional_emails" : false , 
-         "additional_company_emails"  :"Mail ID"
-         },
-      "send_invoice_email_automatically" : false,
-      "hide_room_name" : false,
-      "display_tooltip" : true,
-      "make_guest_field_mandatory" : false,
-      "include_cancelled_noshow_bookings" : true,
-      "hourly_booking_enabled" : false,
-      "allow_free_bookings" : false,
-      "allow_booking_cancelled_with_balance" : false,
-      "restrict_booking_dates_modification" : false,
-      "restrict_checkout_with_balance" : false,
-      "auto_no_show" : true,
-      "force_room_selection" : true,
-      "hide_forecast_charges" : false,
-      "is_total_balance_include_forecast" : true,
-      "show_guest_group_invoice" : false,
-      "enable_new_calendar" : false,
       "unit_name":{ 
          "singular": "bed", 
          "plural" : "beds" 
@@ -312,7 +287,11 @@
       "unit_type_name" : {
          "singular":"room type",
          "plural": "room types"
-         }
+         },
+      "display_tooltip" : true,
+      "hourly_booking_enabled" : true,
+      "allow_free_bookings" : true,
+      "force_room_selection" : true      
    }
 }
     </code>
@@ -335,35 +314,12 @@
 <code class="language-json">{
    "name": "Vacation Rental",
    "version": "1.0.0",
-   "description": "",
    "dependencies": {
-     "online_booking_engine" : "1.0.0",
-     "advance_deposit_report" : "1.0.0"
+      "online_booking_engine" : "1.0.0",
+      "todays_panel" : "1.0.0",
+      "invoice_email" : "1.0.0"      
    },
    "settings": {
-      "automatic_email_confirmation" : false,
-      "automatic_email_cancellation" : false,
-      "send_booking_notes" : false,
-      "additional_email" : { 
-         "send_copy_to_additional_emails" : false , 
-         "additional_company_emails"  :"Mail ID"
-         },
-      "send_invoice_email_automatically" : false,
-      "hide_room_name" : false,
-      "display_tooltip" : true,
-      "make_guest_field_mandatory" : false,
-      "include_cancelled_noshow_bookings" : true,
-      "hourly_booking_enabled" : false,
-      "allow_free_bookings" : false,
-      "allow_booking_cancelled_with_balance" : false,
-      "restrict_booking_dates_modification" : false,
-      "restrict_checkout_with_balance" : false,
-      "auto_no_show" : true,
-      "force_room_selection" : true,
-      "hide_forecast_charges" : false,
-      "is_total_balance_include_forecast" : true,
-      "show_guest_group_invoice" : false,
-      "enable_new_calendar" : false,
       "unit_name":{ 
          "singular": "room",
          "plural" : "rooms" 
@@ -371,8 +327,12 @@
       "unit_type_name" :  {
          "singular":"room type",
          "plural": "room types"
-         }
-     }
+      },   
+      "display_tooltip" : true,
+      "hourly_booking_enabled" : true,
+      "allow_free_bookings" : true,
+      "force_room_selection" : true      
+   }
 }
     </code>
 </pre>                            
@@ -394,35 +354,12 @@
 <code class="language-json">{
    "name": "Apartment",
    "version": "1.0.0",
-   "description": "",
    "dependencies": {
-     "online_booking_engine" : "1.0.0",
-     "advance_deposit_report" : "1.0.0"
+      "todays_panel" : "1.0.0",
+      "advance_deposit_report" : "1.0.0",
+      "invoice_email" : "1.0.0"
    },
    "settings": {
-      "automatic_email_confirmation" : false,
-      "automatic_email_cancellation" : false,
-      "send_booking_notes" : false,
-      "additional_email" : { 
-         "send_copy_to_additional_emails" : false ,  
-         "additional_company_emails"  :"Mail ID"
-         },
-      "send_invoice_email_automatically" : false,
-      "hide_room_name" : false,
-      "display_tooltip" : true,
-      "make_guest_field_mandatory" : false,
-      "include_cancelled_noshow_bookings" : true,
-      "hourly_booking_enabled" : false,
-      "allow_free_bookings" : false,
-      "allow_booking_cancelled_with_balance" : false,
-      "restrict_booking_dates_modification" : false,
-      "restrict_checkout_with_balance" : false,
-      "auto_no_show" : true,
-      "force_room_selection" : true,
-      "hide_forecast_charges" : false,
-      "is_total_balance_include_forecast" : true,
-      "show_guest_group_invoice" : false,
-      "enable_new_calendar" : false,
       "unit_name":{ 
          "singular": "unit", 
          "plural" : "units" 
@@ -430,7 +367,10 @@
       "unit_type_name" :  {
          "singular":"unit type",
          "plural": "unit types"
-         }
+      },
+      "send_invoice_email_automatically" : true,
+      "display_tooltip" : true,
+      "is_total_balance_include_forecast" : true
    }
 }
     </code>
@@ -457,32 +397,8 @@
    "description": "",
    "dependencies": {
      "online_booking_engine" : "1.0.0",
-     "advance_deposit_report" : "1.0.0"
    },
    "settings": {
-      "automatic_email_confirmation" : false,
-      "automatic_email_cancellation" : false,
-      "send_booking_notes" : false,
-      "additional_email" : { 
-         "send_copy_to_additional_emails" : false ,  
-         "additional_company_emails"  :"Mail ID"
-         },
-      "send_invoice_email_automatically" : false,
-      "hide_room_name" : false,
-      "display_tooltip" : true,
-      "make_guest_field_mandatory" : false,
-      "include_cancelled_noshow_bookings" : true,
-      "hourly_booking_enabled" : true,
-      "allow_free_bookings" : false,
-      "allow_booking_cancelled_with_balance" : false,
-      "restrict_booking_dates_modification" : false,
-      "restrict_checkout_with_balance" : false,
-      "auto_no_show" : true,
-      "force_room_selection" : true,
-      "hide_forecast_charges" : false,
-      "is_total_balance_include_forecast" : true,
-      "show_guest_group_invoice" : false,
-      "enable_new_calendar" : false,
       "unit_name":{ 
          "singular": "vehicle", 
          "plural" : "vehicles" 
@@ -491,7 +407,11 @@
          "singular":"vehicle type",
          "plural": "vehicle types"
          }
-      }
+      },
+      "allow_free_bookings" : false,
+      "force_room_selection" : true,
+      "is_total_balance_include_forecast" : true,
+      "hourly_booking_enabled" : true      
 }
     </code>
 </pre>                               
@@ -513,45 +433,25 @@
 <code class="language-json">{
    "name": "Office Space",
    "version": "1.0.0",
-   "description": "",
    "dependencies": {
-     "online_booking_engine" : "1.0.0",
-     "advance_deposit_report" : "1.0.0"
+      "online_booking_engine" : "1.0.0",
+      "advance_deposit_report" : "1.0.0",
+      "automated_night_audit" : "1.0.0"
    },
    "settings": {
-      "automatic_email_confirmation" : false,
-      "automatic_email_cancellation" : false,
-      "send_booking_notes" : false,
-      "additional_email" : { 
-         "send_copy_to_additional_emails" : false ,  
-         "additional_company_emails"  :"Mail ID"
-          },
-      "send_invoice_email_automatically" : false,
-      "hide_room_name" : false,
-      "display_tooltip" : true,
-      "make_guest_field_mandatory" : false,
-      "include_cancelled_noshow_bookings" : true,
-      "hourly_booking_enabled" : true,
-      "allow_free_bookings" : false,
-      "allow_booking_cancelled_with_balance" : false,
-      "restrict_booking_dates_modification" : false,
-      "restrict_checkout_with_balance" : false,
-      "auto_no_show" : true,
-      "force_room_selection" : true,
-      "hide_forecast_charges" : false,
-      "is_total_balance_include_forecast" : true,
-      "show_guest_group_invoice" : false,
-      "enable_new_calendar" : false,
-      "unit_name":{ 
+      "unit_name":{
          "singular": "room", 
-         "plural" : "rooms"
+         "plural" : "rooms" 
          },
-      "unit_type_name" :{
-         "singular": "room type", 
-         "plural" : "room types"
-         }
-      }
+      "unit_type_name" :  {
+         "singular":"room type",
+         "plural": "room types"
+         },
+         "hourly_booking_enabled" : true,
+         "display_tooltip" : true
+   }
 }
+
     </code>
 </pre> 
                            </center>
@@ -599,31 +499,7 @@
 
    </div>
       
-      <div class="web">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="learn_next">
-                     <h1 class="text-center">Smart Calendar </h1>
-                     <p class="text-center">Easy Drag-and-drop bookings.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-12">
-                  <center><img src="assets/img/booking.png"  id="img-weppt" /></center>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="bottom-btn" id="bttn-gap">
-                     <div class="btn-2">
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
+      
       <!--:::::footer area start:::::::-->
       <div class="footer-area">
          <div class="container">
