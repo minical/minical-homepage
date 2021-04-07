@@ -142,7 +142,20 @@ img {
     color: #fff !important;
 }
 
-
+#git-btn{
+    margin-right: -56px;
+}
+@media (max-width: 1024px) {
+#git-btn {
+    margin-right: -69px;
+    margin-left: -47px;
+}
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+.menu-wep {
+    margin-left: 28px;
+}
+}
 /*
 =<::::::::::::::::::::::::::=>
 hader area css
