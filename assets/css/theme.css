@@ -3354,6 +3354,7 @@ color: white;
 }
 .pricingg .plan ul.features {
   list-style-type: none;
+  margin-top: 40px;
   text-align: left;
 }
 .pricingg .plan ul.features li {
