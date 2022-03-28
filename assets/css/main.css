@@ -334,9 +334,12 @@ a.apps_btn,
 
 .main-card {
     max-width: 70%;
-    margin: 5% auto;
+    margin: 3% auto;
 }
 
+.partners{
+ margin-bottom: 40px;
+}
 .partners_img{
   max-width: 100%;
   max-height: 100%;
@@ -349,4 +352,31 @@ a.apps_btn,
   padding: 50px 25px;
   width: 200px;
   height: 200px;
+  margin-bottom: 20px;
 }
+.partners_img_name{
+  margin-top: 20px;
+  font-size: 40px;
+  font-weight: 700;
+  font-style: initial;
+  color: #000060;
+}
+
+.square-holder {
+  padding:30px;
+  border: 1px solid #cecece;
+  border-radius: 10px;
+  align-items: center;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom:20px;
+ /* background-color:#f1f1f1;*/
+  min-height:200px
+}
+
+/*.square-holder img {
+  max-width:100%;
+  filter:none;
+  transition: all 0.3s;
+}*/

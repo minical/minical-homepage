@@ -228,7 +228,7 @@ a.dropdown-item {
 .logo a{
 	font-size: 32px;
 	font-weight: 700;
-	padding-left: 15px;
+	margin-right: 26px;
 	color: #fff;
 }
 a.custom_btn {
@@ -1943,18 +1943,21 @@ input[type="email"] {
 .comment_form h4{
     margin-bottom: 40px;
 }
-   .logo a{
-     color: #090F40;
-    }
-    .menu-wep a{
-     color: #121b4c;    
-     padding: 0px 20px;
-     font-weight:600;   
-    }
-    .menu-wep a:hover{
-      /* border-bottom: 2px solid;    */
-      color: #e5e3ff;
-    }
+.logo a{
+ color: #090F40;
+}
+.menu-wep{
+ margin-left: 25px;
+}
+.menu-wep a{
+ color: #121b4c;    
+ padding: 0px 15px;
+ font-weight:600;   
+}
+.menu-wep a:hover{
+  /* border-bottom: 2px solid;    */
+  color: #e5e3ff;
+}
 
 
 /* Created by http://grohit.com/  */
@@ -3397,7 +3400,7 @@ color: white;
   
 }
 .Pricing-wep{
-    margin-top: 180px;
+    margin-top: 145px;
 }
 .Pricing-wep h1{
     color: #000;
@@ -3771,7 +3774,7 @@ nav ul li label{
 
 @media (max-width: 1700px) {
     .logo a {
-        padding-left: 85px!important;
+       /* padding-left: 85px!important;*/
     }
     .banner-content {
         margin-top: 145px;
@@ -3904,7 +3907,7 @@ img {
         margin-bottom: 140px;
     }
     .logo a {
-        padding-left: 150px;
+       /* padding-left: 150px;*/
     }
 }
 
