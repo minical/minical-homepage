@@ -30,10 +30,10 @@ base css
 */
 @import url('https://fonts.googleapis.com/css?family=Overpass:400,400i,600,700');
 body{
-	font-family: 'Overpass', sans-serif;
-	font-size: 16px;
-	color: #737B9A;
-	overflow-x: hidden;
+  font-family: 'Overpass', sans-serif;
+  font-size: 16px;
+  color: #737B9A;
+  overflow-x: hidden;
 }
 
 html{
@@ -49,31 +49,31 @@ h3,
 h4,
 h5,
 h6{
-	color: #090F40;
-	font-weight: 700;
+  color: #090F40;
+  font-weight: 700;
     font-family: 'Overpass', sans-serif;
     margin: 0;
 
 }
 h1{
-	font-size: 36px;
+  font-size: 36px;
 }
 a,
 a:hover{
-	text-decoration: none;
-	display: inline-block;
-	outline: none;
+  text-decoration: none;
+  display: inline-block;
+  outline: none;
 
 }
 
 ul{
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
     list-style: none;
 }
 img{
-	height: auto;
-	width: auto;
+  height: auto;
+  width: auto;
 }
 input{
   outline: none;
@@ -87,22 +87,22 @@ common css
 
 
 .space-45{
-	height: 45px;
+  height: 45px;
 }
 .space-60{
-	height: 60px;
+  height: 60px;
 }
 .space-30{
-	height: 30px;
+  height: 30px;
 }
 .space-20{
-	height:20px;
+  height:20px;
 }
 .space-80{
-	height: 80px;
+  height: 80px;
 }
 .mb-30{
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 .section-padding-b{
     padding-bottom: 120px;
@@ -156,7 +156,7 @@ a.apps_btn,
 .header-area,
 .single-service:hover
 {
-	-webkit-transition: all .3s;
+  -webkit-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s;
 }
@@ -347,7 +347,13 @@ a.apps_btn,
   display: block;
   margin: auto;
 }
-
+.partners_imgone{
+  max-width: 200px;
+  max-height: 195px;
+  width: auto;
+  display: block;
+  margin: auto;
+}
 .partners_div{
   padding: 50px 25px;
   width: 200px;
@@ -374,7 +380,18 @@ a.apps_btn,
  /* background-color:#f1f1f1;*/
   min-height:200px
 }
-
+.square-holderone {
+  padding:30px;
+  border: 1px solid #cecece;
+  border-radius: 10px;
+  align-items: center;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom:20px;
+ /* background-color:#f1f1f1;*/
+  max-height:200px;
+}
 /*.square-holder img {
   max-width:100%;
   filter:none;
