@@ -397,3 +397,16 @@ a.apps_btn,
   filter:none;
   transition: all 0.3s;
 }*/
+
+.discord-btn {
+    background-color: #7289da;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 5px -470px;
+    position: absolute;
+}
+
+.discord-btn:hover {
+    background-color: #7289da;
+    border-radius: 5px;
+}
