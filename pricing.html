@@ -1,199 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head >
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>miniCal</title>
-      <!--:::::icon Calling:::::::-->
-      <link rel="icon" href="assets/img/Icon.png">
-      <!--::::: theme css :::::::-->
-      <link rel="stylesheet" href="assets/css/main.css">
-      <!--::::: main css :::::::-->
-      <link rel="stylesheet" href="assets/css/theme.css">
-      <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <!--::::: style css :::::::-->
-      <link rel="stylesheet" href="assets/css/responsive.css">
-      <link rel="stylesheet" href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      <!--:::::jquery 3.2.1 js :::::::-->
-      <script src="assets/js/jquery.3.3.1.min.js"></script>
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JMCT393M0"></script> 
-   </head>
-   <body data-spy="scroll" data-target=".navbar" data-offset="50">
-      <!--preload area start-->
-      <!-- Preloader -->
-      <div class="preloader">
-         <div class="spinner_wrap">
-            <div class="spinner"></div>
-         </div>
-      </div>
-      <!--preload area end-->
-      <!-- <div id="header"></div> -->
-      <!--:::::header area start:::::::-->
-      <div class="header-area navbar" id="header">
-         <div class="container-fluid">
-            <div class="col-lg-1 col-md-1 text-left">
-               <div class="logo">
-                  <a href="index.html" class="latterColor">
-                  <!-- <img src="assets/img/Icon.png" alt=""> -->
-                  miniCal</a>
-               </div>
-            </div>
-            <div class="col-lg-5 col-md-5  d-none d-lg-block">
-               <div class="menu-wep">
-                  <!--  <a href="http://marketplace.minical.io/"  target="_blank" class="headA" >Marketplace</a>  -->
-                  <!-- <a href="https://forms.gle/WCuFvC7vjXBR8EAB7" class="headA">Become a partner</a> -->
-                  <a href="partners.html" class="headA">Partners</a>
-                  <a href="http://marketplace.minical.io/" class="headA">Marketplace</a>
-                  <a href="https://docs.minical.io" class="headA" target="_window">Documentation</a>
-                  <a href="pricing.html" class="headA">Pricing</a>
-                  <a href="https://blog.minical.io" target="_window" class="headA">Blog</a>
-                  <!-- <a href="https://discord.gg/a7B7RXZ3w5" class="headA" target="_window">Chat with us</a> -->
-                  <!-- <a href="https://minical.kampsite.co/" class="headA">Feature Requests</a> -->
-               </div>
-            </div>
-            <div class="col-lg-6 col-md-6 d-none d-md-block text-right btn-2">
-               <a  class="btn" id="git-btn"> <iframe src="https://ghbtns.com/github-btn.html?user=minical&repo=minical&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe></a>
-               <a href="http://web.minical.io/signup" target="_blank" class="btn-2"><span>Sign Up</span></a>
-              <a href="http://web.minical.io/auth/login" target="_blank" class="btn-2"><span>Log In</span></a>
-              <a href="https://discord.gg/a7B7RXZ3w5" class="btn btn-primary discord-btn" target="_window">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
-                  <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path>
-                </svg>
-                Join Discord
-              </a>
-            </div>
-         </div>
-      </div>
-     
-     
-      <div class="Pricing-wep">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <h1 class="text-center">Pricing</h1>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="pricingg">
-         <div class="plan">
-            <h2>Personal</h2>
-            <div class="price">Free</div>
-            <ul class="features">
-               <li><i class="fas fa-check-circle"></i> Host your own server</li>
-               <li><i class="fas fa-check-circle"></i> Booking Calendar</li>
-               <li><i class="fas fa-check-circle"></i> Invoicing</li>
-               <li><i class="fas fa-check-circle"></i> Continuous updates</li>
-               <li><i class="fas fa-times-circle"></i> Support not included</li>
-            </ul>
-            <a href="mailto:support@minical.io"><button style="background-color: #c3d8ff;">Contact Us</button></a>
-         </div>
-         <div class="plan">
-            <h2>Mini-Cloud</h2>
-            <div class="price">Free</div>
-            <ul class="features">               
-               <li><i class="fas fa-check-circle"></i> Hosted by miniCal</li>
-               <li><i class="fas fa-check-circle"></i> Booking Calendar</li>
-               <li><i class="fas fa-check-circle"></i> Invoicing</li>
-               <li><i class="fas fa-check-circle"></i> Continuous updates</li>
-               <li><i class="fas fa-check-circle"></i> Limited access to extensions</li>
-               <li><i class="fas fa-check-circle"></i> Basic E-mail support</li>
-            </ul>
-            <a href="https://web.minical.io/signup"><button style="background-color: #c3d8ff;">Sign-up Online</button></a>            
-         </div>
-         <div class="plan popular">
-            <h2>Partner</h2>
-            <div class="price"></div>
-            
-            <ul class="features">
-               <li><i class="fas fa-check-circle"></i> Everything from "Minimal"</li>
-               <li><i class="fas fa-check-circle"></i> API Access</li>
-               <li><i class="fas fa-check-circle"></i> 99.99 SLA</li>
-               <li><i class="fas fa-check-circle"></i> Reseller-license</li>
-               <li><i class="fas fa-check-circle"></i> Onboarding & Training</li>
-            </ul>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing - MiniCal</title>
+  <link rel="icon" href="assets/img/Icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: { dark: '#0F0D1A' }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JMCT393M0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5JMCT393M0');
+  </script>
+</head>
+<body class="font-sans text-gray-800 antialiased">
 
-            <a href="https://forms.gle/WCuFvC7vjXBR8EAB7" target="_blank"><button style="background-color: #c3d8ff;">Contact us</button></a>
-         </div>
+  <!-- ======== HEADER ======== -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-xl font-bold text-white tracking-tight">MiniCal</a>
+        <nav class="hidden lg:flex items-center space-x-8">
+          <a href="partners.html" class="text-sm text-gray-300 hover:text-white transition-colors">Partners</a>
+          <a href="pricing.html" class="text-sm text-white font-semibold">Pricing</a>
+          <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Discord</a>
+        </nav>
+        <div class="hidden lg:flex items-center space-x-3">
+          <a href="http://web.minical.io/signup" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Sign Up</a>
+          <a href="http://web.minical.io/auth/login" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Log In</a>
+        </div>
+        <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Toggle menu">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
-      <!--:::::footer area start:::::::-->
-    <div class="footer-area">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="footer-gap">
-                    <p class="m_color" id="p-5">Contact us at <a href="mailto:support@minical.io" class="m_color" id="p-6">support@minical.io
-                    </a></p>
-                     <div class="logo-f1" id="logo-change">
-                  <a href="http://minical.io" class="latterColor">
-                  <!-- <img src="assets/img/Icon.png" alt=""> -->
-                  miniCal</a>
-               </div>
-               <div class="icons-wep">
-                    <ul class="icons-css">
-                     <li>  <a  class="btn" href="https://discord.gg/a7B7RXZ3w5">
-               <i class="fab fa-discord center" style="font-size:30px"></i></a></li>
-                    </ul> 
-                  </div>
-                  <p class="fotter-wept">© Copyright
-                     <script>document.write(new Date().getFullYear());</script> miniCal
-                  </p>
-               </div>
-               </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden bg-dark/95 backdrop-blur-lg border-t border-white/10">
+      <div class="px-4 py-4 space-y-3">
+        <a href="partners.html" class="block text-gray-300 hover:text-white transition-colors">Partners</a>
+        <a href="pricing.html" class="block text-white font-semibold">Pricing</a>
+        <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Discord</a>
+        <hr class="border-white/10">
+        <a href="http://web.minical.io/signup" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Sign Up</a>
+        <a href="http://web.minical.io/auth/login" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Log In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======== HERO ======== -->
+  <section class="hero-gradient-short relative overflow-hidden pt-28 pb-12">
+    <div class="orb orb-1 w-64 h-64 bg-indigo-600 -top-10 -right-20"></div>
+    <div class="orb orb-2 w-48 h-48 bg-purple-600 bottom-0 left-10"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Pricing</h1>
+      <p class="text-lg text-gray-400 max-w-xl mx-auto">Simple, transparent pricing for every stage of your property management journey.</p>
+    </div>
+  </section>
+
+  <!-- ======== BILLING TOGGLE ======== -->
+  <section class="pt-12 pb-4 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-center gap-4">
+        <span id="label-monthly" class="text-sm font-semibold text-gray-900">Monthly</span>
+        <button id="billing-toggle" class="relative w-14 h-7 bg-gray-300 rounded-full transition-colors" aria-label="Toggle billing period">
+          <span id="toggle-knob" class="absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow transition-transform"></span>
+        </button>
+        <span id="label-annual" class="text-sm font-medium text-gray-500">Annual <span class="text-green-600 font-semibold">Save 17%</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== PRICING CARDS ======== -->
+  <section class="py-12 sm:py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-gray-500 mb-10">Per-room pricing. All plans include hosting by MiniCal.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+
+        <!-- Free Plan -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 card-hover flex flex-col">
+          <div class="mb-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Free</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-extrabold text-gray-900">$0</span>
+              <span class="text-gray-500 text-sm">/room/mo</span>
             </div>
-         </div>
+          </div>
+          <ul class="space-y-3 mb-6 flex-grow text-sm">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Booking Calendar</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Reports & Analytics</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Invoice</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Online Booking Engine</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Rate Management</span>
+            </li>
+          </ul>
+          <a href="https://web.minical.io/signup" target="_blank" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2.5 px-4 rounded-full transition-colors text-sm">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Starter Plan -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 card-hover flex flex-col">
+          <div class="mb-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Starter</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-extrabold text-gray-900 price-value" data-monthly="2" data-annual="1.67">$2</span>
+              <span class="text-gray-500 text-sm">/room/mo</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">Starts at $40/mo minimum</p>
+          </div>
+          <p class="text-xs text-gray-400 mb-4">Everything in Free, plus:</p>
+          <ul class="space-y-3 mb-6 flex-grow text-sm">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Website Builder</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Guest Notifications</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Housekeeping</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Group Bookings</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Registration Cards</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Customer Statements</span>
+            </li>
+          </ul>
+          <a href="https://web.minical.io/signup" target="_blank" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2.5 px-4 rounded-full transition-colors text-sm">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Essential Plan (Popular) -->
+        <div class="bg-white rounded-2xl p-6 shadow-xl border-2 border-indigo-600 card-hover flex flex-col relative">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+            <span class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Popular</span>
+          </div>
+          <div class="mb-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Essential</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-extrabold text-gray-900 price-value" data-monthly="4" data-annual="3.33">$4</span>
+              <span class="text-gray-500 text-sm">/room/mo</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">Starts at $80/mo minimum</p>
+          </div>
+          <p class="text-xs text-gray-400 mb-4">Everything in Starter, plus:</p>
+          <ul class="space-y-3 mb-6 flex-grow text-sm">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Payment Processor</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Multi-Folio</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">E-Signature</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Channel Management</span>
+            </li>
+          </ul>
+          <a href="https://web.minical.io/signup" target="_blank" class="block text-center bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold py-2.5 px-4 rounded-full transition-all shadow-lg shadow-indigo-500/25 text-sm">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 card-hover flex flex-col">
+          <div class="mb-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Pro</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-extrabold text-gray-900 price-value" data-monthly="6" data-annual="5">$6</span>
+              <span class="text-gray-500 text-sm">/room/mo</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">Starts at $160/mo minimum</p>
+          </div>
+          <p class="text-xs text-gray-400 mb-4">Everything in Essential, plus:</p>
+          <ul class="space-y-3 mb-6 flex-grow text-sm">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Point of Sale</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Review Manager</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Advanced Analytics</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">API Access</span>
+            </li>
+          </ul>
+          <a href="https://web.minical.io/signup" target="_blank" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2.5 px-4 rounded-full transition-colors text-sm">
+            Get Started
+          </a>
+        </div>
+
+        <!-- Executive Plan -->
+        <div class="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 card-hover flex flex-col">
+          <div class="mb-5">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Executive</h3>
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-extrabold text-gray-900 price-value" data-monthly="8" data-annual="6.67">$8</span>
+              <span class="text-gray-500 text-sm">/room/mo</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-1">Starts at $320/mo minimum</p>
+          </div>
+          <p class="text-xs text-gray-400 mb-4">Everything in Pro, plus:</p>
+          <ul class="space-y-3 mb-6 flex-grow text-sm">
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Revenue Management</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">Multi-Property</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-600">AI Advisor</span>
+            </li>
+          </ul>
+          <a href="https://web.minical.io/signup" target="_blank" class="block text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2.5 px-4 rounded-full transition-colors text-sm">
+            Get Started
+          </a>
+        </div>
+
       </div>
- 
-      <!--:::::footer area end  :::::::-->
-      <!--:::::jquery.waypoints.min.js :::::::-->
-      <script src="assets/js/jquery.waypoints.min.js"></script>
-      <!--:::::popper js :::::::-->
-      <script src="assets/js/popper.min.js"></script>
-      <!--:::::bootstrap js :::::::-->
-      <script src="assets/js/bootstrap.min.js"></script>
-      <!--:::::owl carousel js :::::::-->
-      <script src="assets/js/owl.carousel.min.js"></script>
-      <!--::::: google map js:::::::-->
-      <script src="https://maps.googleapis.com/maps/api/js"></script>
-      <!--:::::modal video btn js :::::::-->
-      <script src="assets/js/jquery-modal-video.min.js"></script>
-      <!--:::::slick nav mobile menu js :::::::-->
-      <script src="assets/js/jquery.slicknav.min.js"></script>
-      <!--:::::counter js :::::::-->
-      <script src="assets/js/jquery.counterup.js"></script>
-      <!--:::::main js :::::::-->
-      <script src="assets/js/main.js"></script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'G-5JMCT393M0');
-      </script>
-      <!-- <script> 
-         $(function(){
-           $("#header").load("header.html"); 
-           $("#footer").load("footer.html"); 
-         });
-         </script> -->
-      <script>
-         $.ajax({
-             //chnage it when minical repo become public and the path will be /pankaj9296/minical/minical
-          url: ' https://api.github.com/repos/kamranahmedse/githunt',
-          data: {
-              format: 'json'
-          },
-          error: function() {
-              $('#info').html('<p>An error has occurred</p>');
-          },
-          dataType: 'jsonp',
-          success: function(data) {
-              var count = data.data.stargazers_count;
-              $("#star_rating").text(count);
-          },
-          type: 'GET'
-          });
-      </script>
-   </body>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="py-12 bg-gray-900 text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center text-center space-y-4">
+        <a href="http://minical.io" class="text-xl font-bold text-white">MiniCal</a>
+        <p>Contact us at <a href="mailto:support@minical.io" class="text-indigo-400 hover:text-indigo-300 transition-colors">support@minical.io</a></p>
+        <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+          </svg>
+        </a>
+        <p class="text-sm">&copy; <script>document.write(new Date().getFullYear());</script> MiniCal</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======== VANILLA JS ======== -->
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+
+    // Billing toggle
+    const billingToggle = document.getElementById('billing-toggle');
+    const toggleKnob = document.getElementById('toggle-knob');
+    const labelMonthly = document.getElementById('label-monthly');
+    const labelAnnual = document.getElementById('label-annual');
+    const priceValues = document.querySelectorAll('.price-value');
+    let isAnnual = false;
+
+    billingToggle.addEventListener('click', () => {
+      isAnnual = !isAnnual;
+      if (isAnnual) {
+        toggleKnob.style.transform = 'translateX(1.75rem)';
+        billingToggle.classList.remove('bg-gray-300');
+        billingToggle.classList.add('bg-indigo-600');
+        labelAnnual.classList.remove('text-gray-500');
+        labelAnnual.classList.add('text-gray-900', 'font-semibold');
+        labelMonthly.classList.remove('font-semibold', 'text-gray-900');
+        labelMonthly.classList.add('text-gray-500', 'font-medium');
+      } else {
+        toggleKnob.style.transform = 'translateX(0)';
+        billingToggle.classList.remove('bg-indigo-600');
+        billingToggle.classList.add('bg-gray-300');
+        labelMonthly.classList.remove('text-gray-500', 'font-medium');
+        labelMonthly.classList.add('text-gray-900', 'font-semibold');
+        labelAnnual.classList.remove('text-gray-900', 'font-semibold');
+        labelAnnual.classList.add('text-gray-500', 'font-medium');
+      }
+      priceValues.forEach(el => {
+        const price = isAnnual ? el.dataset.annual : el.dataset.monthly;
+        el.textContent = '$' + price;
+      });
+    });
+
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+    });
+  </script>
+
+</body>
 </html>

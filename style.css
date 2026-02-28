@@ -1,252 +1,124 @@
-  /* .block {
-      padding: 10px 20px;
-      font-size: 16px;
-      text-align: center;
-      border-radius: 4px;
-      } */
-      .single-service{
-      background-color: white;
-      }
-      .service-area{
-      padding: 20px;
-      }
-      .single-pricing{
-      background-color: white;
-      }
-      .pricing-area{
-      /* transform: skew(0deg, -15deg); */
-      }
-      .pricing-area{
-      background-color:#eef7fe;
-      }
-      .block:hover {
-      background-color: #090F40;
-      color: white;
-      }
-      @media only screen and (min-width: 1024px) and (max-width: 1366px) {
-      .landingPageImg{
-      margin-top: 33%;
-      }
-      .main_content{
-      width: 60%;
-      }
-      }
-      @media only screen and (min-width:1367px) {
-      .main_content{
-      width: 60%;
-      }
-      }
-      .headA{
-    margin: 0px 10px 0px 10px;;
-    color: #ffffff;
-}
-/* .login{
-    padding: 3%;
-}*/
-.signup{
-    margin: 0px 5px 0px 5px;    border-width: 2px;
+/* ============================================
+   MiniCal - Custom CSS (Tailwind CDN handles layout)
+   ============================================ */
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
 }
 
-/*Mudit CSS Start*/
-/* Created by http://grohit.com/  */
-
-
-.bottom-btn .btn-2 a {
-    text-decoration: none;
-    border: 2px solid #010100;
-    padding: 7px;
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
-    display: inline-block;
-    font-size: 14px;
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-15px) scale(1.02); }
 }
 
-.bottom-btn .btn-2 span {
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glassmorphism Header */
+.header-scrolled {
+  background: rgba(15, 13, 26, 0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #06B6D4, #4F46E5, #7C3AED);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Animated Orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+}
+
+.orb-1 {
+  animation: float 8s ease-in-out infinite;
+}
+
+.orb-2 {
+  animation: float-delayed 10s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+.orb-3 {
+  animation: float 12s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+/* Hero gradient animation */
+.hero-gradient {
+  background: linear-gradient(135deg, #0F0D1A 0%, #1a1040 25%, #0F0D1A 50%, #0d1a2e 75%, #0F0D1A 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
   position: relative;
-  /* z-index coz when we put bg to before and after this span text will not be visible */
-  z-index: 3;
- font-weight: 700;
+  overflow: hidden;
 }
 
-/* Button 1 styles */
-
-
-
-.btn-1 a:hover::before,
-.bottom-btn .btn-2 a:hover::before {
-  transform: scaleY(0);
-}
-
-.btn-1 a::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: -5px;
-  width: calc(100% - 10px);
-  /*100% plus double the times left values*/
-  height: calc(100% + 10px);
-  background-color: #ffffff;
-  transition: all 0.5s ease-in-out;
-  transform: scaleX(1);
-}
-/* Created by http://grohit.com/  */
-
-.btn-1 a:hover::after,
-.bottom-btn .btn-2 a:hover::after {
-  transform: scaleX(0);
-}
-
-/* Button 2 styles */
-
-.bottom-btn .btn-2 a {
-  color: #ffffff;
-  transition: all 0.5s ease-in-out;
-}
-
-.bottom-btn .btn-2 a:hover {
-  color: #000000;
-  transition: all 0.5s ease-in-out;
-}
-
-.bottom-btn .btn-2 a::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  transition: all 0.5s ease-in-out;
-  transform: scaleY(1);
-}
-
-.bottom-btn .btn-2 a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  transition: all 0.5s ease-in-out;
-  transform: scaleX(1);
-}
-    .logo a{
-     color: #090F40;
-    }
-    .menu-wep a{
-     color: #121b4c;    
-     padding: 0px 52px;
-     font-weight:600;   
-    }
-    .menu-wep a:hover{
-      /* border-bottom: 2px solid;    */
-      color: #e5e3ff;
-    }
-
-
-/* Created by http://grohit.com/  */
-
-
-.btn-2 a:nth-child(2) {
-    text-decoration: none;
-    border: 2px solid #010100;
-    padding: 5px;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    position: relative;
-    display: inline-block;
-    font-size: 14px;
-}
-
-.btn-2 span {
+/* Short hero for subpages (pricing, partners) */
+.hero-gradient-short {
+  background: linear-gradient(135deg, #0F0D1A 0%, #1a1040 25%, #0F0D1A 50%, #0d1a2e 75%, #0F0D1A 100%);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
   position: relative;
-  /* z-index coz when we put bg to before and after this span text will not be visible */
-  z-index: 3;
+  overflow: hidden;
 }
 
-/* Button 1 styles */
-
-.btn-1 a:nth-child(2)::before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: -2px;
-  width: calc(100% + 6px);
-  /*100% plus double the times left values*/
-  height: calc(100% - 10px);
-  background-color: #ffffff;
-  transition: all 0.5s ease-in-out;
-  transform: scaleY(1);
+/* Card hover lift */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-1 a:hover::before,
-.btn-2 a:nth-child(2):hover::before {
-  transform: scaleY(0);
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.btn-1 a::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: -5px;
-  width: calc(100% - 10px);
-  /*100% plus double the times left values*/
-  height: calc(100% + 10px);
-  background-color: #ffffff;
-  transition: all 0.5s ease-in-out;
-  transform: scaleX(1);
-}
-/* Created by http://grohit.com/  */
-
-.btn-1 a:hover::after,
-.btn-2 a:nth-child(2):hover::after {
-  transform: scaleX(0);
+/* Partner logo grayscale */
+.logo-grayscale {
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-/* Button 2 styles */
-
-.btn-2 a {
-  color: #ffffff;
-  transition: all 0.5s ease-in-out;
+.logo-grayscale:hover {
+  filter: grayscale(0%);
+  opacity: 1;
 }
-
-.btn-2 a:nth-child(2):hover {
-  color: #000000;
-  transition: all 0.5s ease-in-out;
-}
-
-.btn-2 a:nth-child(2)::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  transition: all 0.5s ease-in-out;
-  transform: scaleY(1);
-}
-
-.btn-2 a:nth-child(2)::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  transition: all 0.5s ease-in-out;
-  transform: scaleX(1);
-}
-.welcome-text h1{
- font-size:52px;
-}
-.welcome-text p{
-font-size:18px;
-}
-
-/*Mudit CSS End*/

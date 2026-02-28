@@ -1,417 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head >
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>miniCal</title>
-      <!--:::::icon Calling:::::::-->
-      <link rel="icon" href="assets/img/Icon.png">
-      <!--::::: theme css :::::::-->
-      <link rel="stylesheet" href="assets/css/main.css">
-      <!--::::: main css :::::::-->
-      <link rel="stylesheet" href="assets/css/theme.css">
-      <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <!--::::: style css :::::::-->
-      <link rel="stylesheet" href="assets/css/responsive.css">
-      <link rel="stylesheet" href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link rel="stylesheet" href="assets/css/prism.css">
-      <link rel="stylesheet" href="assets/css/prism-line-numbers.css">
-      <!--:::::jquery 3.2.1 js :::::::-->
-      <script src="assets/js/jquery.3.3.1.min.js"></script>
-       <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JMCT393M0"></script> 
-   </head>
-   <style>
-      .banner-section {
-    background-color: #000060;
-    background-image: url(assets/img/backgroun.png);
-    background-position: center center;
-    background-size: cover;
-}
-   </style>
-   <body data-spy="scroll" data-target=".navbar" data-offset="50">
-      <!--preload area start-->
-      <!-- Preloader -->
-      <div class="preloader">
-         <div class="spinner_wrap">
-            <div class="spinner"></div>
-         </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniCal - AI-Powered Property Management</title>
+  <link rel="icon" href="assets/img/Icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: { dark: '#0F0D1A' }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JMCT393M0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5JMCT393M0');
+  </script>
+</head>
+<body class="font-sans text-gray-800 antialiased">
+
+  <!-- ======== HEADER ======== -->
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="index.html" class="text-xl font-bold text-white tracking-tight">MiniCal</a>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden lg:flex items-center space-x-8">
+          <a href="partners.html" class="text-sm text-gray-300 hover:text-white transition-colors">Partners</a>
+          <a href="pricing.html" class="text-sm text-gray-300 hover:text-white transition-colors">Pricing</a>
+          <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Discord</a>
+        </nav>
+
+        <!-- Desktop Actions -->
+        <div class="hidden lg:flex items-center space-x-3">
+          <a href="http://web.minical.io/signup" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Sign Up</a>
+          <a href="http://web.minical.io/auth/login" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Log In</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Toggle menu">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
-      <!--preload area end-->
-      <!-- <div id="header"></div> -->
-      <!--:::::header area start:::::::-->
-      
+    </div>
 
-      <div class="header-area navbar" id="header" >
-         <div class="container-fluid">
-            <div class="col-lg-1 col-md-1 text-left">
-               <div class="logo">
-                  <a href="index.html" class="latterColor">
-                     <!-- <img src="assets/img/Icon.png" alt=""> -->
-                     miniCal
-                  </a>
-               </div>
-            </div>
-            <div class="col-lg-5 col-md-5  d-none d-lg-block">
-               <div class="menu-wep">
-                  <!--  <a href="http://marketplace.minical.io/"  target="_blank" class="headA" >Marketplace</a>  -->
-                  <!-- <a href="https://forms.gle/WCuFvC7vjXBR8EAB7" class="headA">Become a partner</a> -->
-                  <a href="partners.html" class="headA">Partners</a>
-                  <a href="http://marketplace.minical.io/" class="headA">Marketplace</a>
-                  <a href="https://docs.minical.io" class="headA" target="_window">Documentation</a>
-                  <a href="pricing.html" class="headA">Pricing</a>
-                  <a href="https://blog.minical.io" target="_window" class="headA">Blog</a>
-                  <!-- <a href="https://discord.gg/a7B7RXZ3w5" class="headA" target="_window">Chat with us</a> -->
-                  <!-- <a href="https://minical.kampsite.co/" class="headA">Feature Requests</a> -->
-               </div>
-            </div>
-            <div class="col-lg-6 col-md-6 d-none d-md-block text-right btn-2">
-               <a href="http://web.minical.io/signup" target="_blank" class="btn-2"><span>Sign Up</span></a>
-              <a href="http://web.minical.io/auth/login" target="_blank" class="btn-2"><span>Log In</span></a>
-              <a href="https://discord.gg/a7B7RXZ3w5" class="btn btn-primary discord-btn" target="_window">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
-                  <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path>
-                </svg>
-                Join Discord
-              </a>
-            </div>
-         </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-dark/95 backdrop-blur-lg border-t border-white/10">
+      <div class="px-4 py-4 space-y-3">
+        <a href="partners.html" class="block text-gray-300 hover:text-white transition-colors">Partners</a>
+        <a href="pricing.html" class="block text-gray-300 hover:text-white transition-colors">Pricing</a>
+        <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Discord</a>
+        <hr class="border-white/10">
+        <a href="http://web.minical.io/signup" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Sign Up</a>
+        <a href="http://web.minical.io/auth/login" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Log In</a>
       </div>
-      <div class="banner-section">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="banner-content">
-                     <h1>A Minimal Calendar for Property Management</h1>
-                     <p>
-                        Flexible and whitelabel-ready. Build your own PMS brand on top of miniCal with 50+ extensions
-                     </p>
-                     <div class="bottom-btn">
-                        <div class="btn-2">
-                           <a href="http://demo.minical.io" target="_blank"><span>Demo</span></a>
-                           <a href="partners.html"><span>Become a Partner</span></a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+    </div>
+  </header>
+
+  <!-- ======== HERO ======== -->
+  <section class="hero-gradient relative overflow-hidden min-h-[90vh] flex items-center">
+    <!-- Animated Orbs -->
+    <div class="orb orb-1 w-72 h-72 bg-indigo-600 top-20 -left-20"></div>
+    <div class="orb orb-2 w-96 h-96 bg-purple-600 -top-10 right-10"></div>
+    <div class="orb orb-3 w-64 h-64 bg-cyan-500 bottom-10 left-1/3"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-20">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-8">
+        <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+        <span class="text-sm text-cyan-300">AI-Powered Intelligence Built In</span>
       </div>
-
-
-      <section class="services pt-100 pb-50 pb-60" id="services">
-
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="learn_next">
-                     <h1 class="text-center">This Minimal Calendar </h1>
-                     <p class="text-center">powers properties around the world</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-12">
-                  <center><img src="assets/img/booking.png"  id="img-weppt" /></center>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="bottom-btn" id="bttn-gap">
-                     <div class="btn-2">
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!--:::::service area start:::::::-->
-      <section class="services pt-100 pb-50 pb-60" id="services">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-6 mx-auto text-center">
-                  <div class="section-title mb-100">
-                     <h4>PMS Partners</h4>
-                     </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-lg-3 col-md-6">
-                  <img src="./assets/img/lodgeware.png"/>
-               </div>
-               <div class="col-lg-3 col-md-6">
-                  <img src="./assets/img/vacationspal.png"/>
-               </div>
-               <div class="col-lg-3 col-md-6">
-                  <img src="./assets/img/roomsy.png"/>
-               </div>
-               <div class="col-lg-3 col-md-6" style="padding: 0 20px 0 20px;">
-                  <img src="./assets/img/hoteli_2.png" style="background-color: #021947;"/>
-               </div>
-            </div>
-            <!-- <div class="row">
-               <div class="col-lg-3 col-md-6">
-                  Revsol
-               </div>
-               <div class="col-lg-3 col-md-6">
-                  Stand Out Hotels
-               </div>
-               <div class="col-lg-3 col-md-6">
-                  Coliving.com
-               </div>
-               <div class="col-lg-3 col-md-6">
-                  Hotel-Link
-               </div>
-            </div> -->
-         </div>
-      </section>
-
-    
-      <!--:::::welcome area end:::::::-->
-      <!-- style="background-image: url(assets/img/ee5.png);" -->
-      <!--:::::service area start:::::::-->
-      <section class="services pt-100 pb-50 pb-60" id="services">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-6 mx-auto text-center">
-                  <div class="section-title mb-100">
-                     <h4>What's in the box</h4>
-                     </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-lg-4 col-md-6" id="gapping">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <!-- <i class="fa fa-calendar"></i> -->
-                     <h2>Multi-property management</h2>
-                     <p>With miniCal, you can manage multiple properties or launch your own whitelabel PMS company.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6" id="gapping">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <!-- <i class="fa fa-calendar"></i> -->
-                     <h2>Multi-language support</h2>
-                     <p>Customize and translate all your content to any language.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6" id="gapping">
-                  <div class="single-service">
-                     <h2>Extensions</h2>
-                     <p>There are currently  33 extensions and counting! Popular extensions such as payment gateway & channel manager integrations are already available.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6" id="gapping">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <!--   <i class="fa fa-book"></i> -->
-                     <h2>Intuitive Calendar</h2>
-                     <p>Simple interface that provides quick overview of your property.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6" id="gapping">
-                  <div class="single-service">
-                     <h2>User Management</h2>
-                     <p>For each properties, users can be assigned into different roles that have different permissions.</p>
-                  </div>
-               </div>
-               <!-- <div class="col-lg-4 col-md-6" id="gapping">
-                  <div class="single-service">
-                     <h2>Account Management</h2>
-                     <p> </p>
-                  </div>
-               </div> -->
-               <div class="col-lg-4 col-md-6" id="gapping">
-                  <div class="single-service">
-                     <h2>Invoices</h2>
-                     <p>Creation and automatic delivery of the invoices to your clients by mail.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <!-- style="background-image: url(assets/img/ee5.png);" -->
-      
-      <section class="services pt-100 pb-50 pb-60" id="services">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-6 mx-auto text-center">
-                  <div class="section-title mb-100">
-                     <h4>Integrations</h4>
-                     </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-lg-3 col-md-6">
-                  <img src="./assets/img/integrations/booking.png"/>
-               </div>
-               <div class="col-lg-3 col-md-6">
-                  <img src="./assets/img/integrations/airbnb.png"/>
-               </div>
-               <div class="col-lg-3 col-md-6">
-                  <img src="./assets/img/integrations/expedia.png"/>
-               </div>
-               <div class="col-lg-3 col-md-6">
-                  <img src="./assets/img/integrations/channex.png"/>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-lg-3 col-md-6">
-                  <img src="./assets/img/integrations/stripe.png"/>
-               </div>
-               <div class="col-lg-3 col-md-6">
-                  <img src="./assets/img/integrations/nexio.png"/>
-               </div>
-               <div class="col-lg-3 col-md-6">
-                  <img src="./assets/img/integrations/kovena.png"/>
-               </div>
-               <div class="col-lg-3 col-md-6">
-                  <img src="./assets/img/integrations/siteminder.png"/>
-               </div>
-            </div>
-            <div class="col-lg-12 col-md-12" id="gapping">
-               <div class="single-service">
-                  <h2>...and many more available in our <a href="http://marketplace.minical.io/" target="_blank">marketplace!</a></h2>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      <section class="services pt-100 pb-50 pb-60" id="ai-section">
-         <div class="container">
-            <div class="row">
-               <div class="col-xl-8 mx-auto text-center">
-                  <div class="section-title mb-100">
-                     <h4>AI-Driven Intelligence</h4>
-                     <p>Maximize revenue with smart analytics built for hospitality</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-lg-4 col-md-6" id="gapping">
-                  <div class="single-service">
-                     <h2>Revenue Optimization</h2>
-                     <p>AI-powered pricing recommendations that analyze market trends, occupancy patterns, and competitor rates to maximize your revenue.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6" id="gapping">
-                  <div class="single-service">
-                     <h2>Smart Analytics</h2>
-                     <p>Real-time dashboards and predictive insights that help hotel owners make data-driven decisions about their properties.</p>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-md-6" id="gapping">
-                  <div class="single-service">
-                     <h2>Automated Forecasting</h2>
-                     <p>Predict demand, optimize room allocation, and reduce vacancies with intelligent forecasting powered by your booking data.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-   <div class="community-sec">
-   <div class="container">
-      <div id="what-we-do">
-         <div class="container">
-           <div class="row mt-5">
-               <div class="col-lg-6 col-md-6">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                    <a class="btn" href="http://marketplace.minical.io/" target="_blank"><i class="fa fa-desktop"></i></a> 
-                     <h2>Marketplace</h2>
-                     <p>Explore the extensions of miniCal on <a href="http://marketplace.minical.io/" target="_blank">Marketplace</a>
-                        </p>
-                  </div>
-               </div>
-               <div class="col-lg-6 col-md-6" href="">
-                  <!-- Single Service -->
-                  <div class="single-service">
-                     <a class="btn" href="https://discord.gg/a7B7RXZ3w5">
-                        <i class="fab fa-discord"></i>
-                     </a>
-                     <h2>Join The Community</h2>
-                     <p>Get support. exchange ideas with our growing dev community.<br>
-                         Join us on  <a href="https://discord.gg/a7B7RXZ3w5">
-                           Discord.
-                        </a></p>
-                  </div>
-               </div>
-            </div>            
-         </div>
+      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+        AI-Powered<br>
+        <span class="gradient-text">Property Management</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+        Flexible and whitelabel-ready. Build your own PMS brand on top of MiniCal with 50+ extensions and AI-driven intelligence.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="http://demo.minical.io" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold px-8 py-3.5 rounded-full transition-all shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40">
+          Try Demo
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="partners.html" class="inline-flex items-center gap-2 border border-white/30 hover:border-white/60 text-white font-semibold px-8 py-3.5 rounded-full transition-all hover:bg-white/5">
+          Become a Partner
+        </a>
       </div>
-   </div>
+    </div>
+  </section>
 
-   </div>
-      
-      
-      <!--:::::footer area start:::::::-->
-      <div class="footer-area">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="footer-gap">
-                     <p class="m_color" id="p-5">Contact us at <a href="mailto:support@minical.io" class="m_color" id="p-6">support@minical.io
-                        </a>
-                     </p>
-                     <div class="logo-f1" id="logo-change">
-                        <a href="http://minical.io" class="latterColor">
-                           <!-- <img src="assets/img/Icon.png" alt=""> -->
-                           miniCal
-                        </a>
-                     </div>
-                     <div class="icons-wep">
-                        <ul class="icons-css">
-                           <li>  <a  class="btn" href="https://discord.gg/a7B7RXZ3w5">
-                              <i class="fab fa-discord center" style="font-size:30px"></i></a>
-                           </li>
-                        </ul>
-                     </div>
-                     <p class="fotter-wept">© Copyright
-                        <script>document.write(new Date().getFullYear());</script> miniCal
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </div>
+  <!-- ======== LOGO STRIP ======== -->
+  <section class="py-12 bg-gray-50 border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm text-gray-500 mb-8 font-medium uppercase tracking-wider">Trusted by PMS partners worldwide</p>
+      <div class="flex flex-wrap items-center justify-center gap-12 md:gap-16">
+        <img src="./assets/img/lodgeware.png" alt="Lodgeware" class="h-10 object-contain logo-grayscale">
+        <img src="./assets/img/vacationspal.png" alt="VacationsPal" class="h-10 object-contain logo-grayscale">
+        <img src="./assets/img/roomsy.png" alt="Roomsy" class="h-10 object-contain logo-grayscale">
+        <img src="./assets/img/hoteli_2.png" alt="Hoteli" class="h-10 object-contain logo-grayscale">
       </div>
-      <!--:::::footer area end  :::::::-->
-      <!--:::::jquery.waypoints.min.js :::::::-->
-      <script src="assets/js/jquery.waypoints.min.js"></script>
-      <!--:::::popper js :::::::-->
-      <script src="assets/js/popper.min.js"></script>
-      <!--:::::bootstrap js :::::::-->
-      <script src="assets/js/bootstrap.min.js"></script>
-      <!--:::::owl carousel js :::::::-->
-      <script src="assets/js/owl.carousel.min.js"></script>
-      <!--::::: google map js:::::::-->
-      <script src="https://maps.googleapis.com/maps/api/js"></script>
-      <!--:::::modal video btn js :::::::-->
-      <script src="assets/js/jquery-modal-video.min.js"></script>
-      <!--:::::slick nav mobile menu js :::::::-->
-      <script src="assets/js/jquery.slicknav.min.js"></script>
-      <!--:::::counter js :::::::-->
-      <script src="assets/js/jquery.counterup.js"></script>
-      <!--:::::main js :::::::-->
-      <script src="assets/js/main.js"></script>
-      <script src="assets/js/prism.js"></script>
-      <script src="assets/js/prism-line-numbers.js"></script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'G-5JMCT393M0');
-      </script>
-      <!-- <script> 
-         $(function(){
-           $("#header").load("header.html"); 
-           $("#footer").load("footer.html"); 
-         });
-         </script> -->
-   
-   </body>
+    </div>
+  </section>
+
+  <!-- ======== AI FEATURES ======== -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <p class="text-sm font-semibold text-cyan-600 uppercase tracking-wider mb-3">AI-Driven Intelligence</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4">
+          <span class="gradient-text">Smart Analytics</span> for Hospitality
+        </h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Maximize revenue and streamline operations with AI built specifically for property management.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- AI Card 1 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Dynamic Pricing</h3>
+          <p class="text-gray-600 leading-relaxed">AI-powered pricing recommendations that analyze market trends, occupancy patterns, and competitor rates to maximize your revenue.</p>
+        </div>
+        <!-- AI Card 2 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Predictive Analytics</h3>
+          <p class="text-gray-600 leading-relaxed">Real-time dashboards and predictive insights that help property owners make data-driven decisions.</p>
+        </div>
+        <!-- AI Card 3 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Demand Forecasting</h3>
+          <p class="text-gray-600 leading-relaxed">Predict demand, optimize room allocation, and reduce vacancies with intelligent forecasting powered by your booking data.</p>
+        </div>
+        <!-- AI Card 4 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">AI Concierge</h3>
+          <p class="text-gray-600 leading-relaxed">Automated guest communication that handles inquiries, booking confirmations, and personalized recommendations 24/7.</p>
+        </div>
+        <!-- AI Card 5 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Revenue Mgmt</h3>
+          <p class="text-gray-600 leading-relaxed">Comprehensive revenue management with yield optimization, channel performance analysis, and automated rate adjustments.</p>
+        </div>
+        <!-- AI Card 6 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.573-1.066z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Automated Operations</h3>
+          <p class="text-gray-600 leading-relaxed">Streamline housekeeping, maintenance scheduling, and operational workflows with AI-driven task automation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== SCREENSHOT ======== -->
+  <section class="py-20 sm:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">This Minimal Calendar</h2>
+        <p class="text-lg text-gray-500">Powers properties around the world</p>
+      </div>
+      <div class="reveal">
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 max-w-5xl mx-auto">
+          <div class="flex items-center gap-2 px-4 py-3 bg-gray-100 border-b border-gray-200">
+            <span class="w-3 h-3 rounded-full bg-red-400"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+            <span class="w-3 h-3 rounded-full bg-green-400"></span>
+          </div>
+          <img src="assets/img/booking.png" alt="MiniCal Booking Calendar" class="w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CORE FEATURES ======== -->
+  <section class="py-20 sm:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">Features</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">Everything You Need</h2>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto">A complete property management system designed for flexibility and scale.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Multi-Property Management</h3>
+          <p class="text-gray-600 leading-relaxed">Manage multiple properties or launch your own whitelabel PMS company from a single platform.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Multi-Language Support</h3>
+          <p class="text-gray-600 leading-relaxed">Customize and translate all your content to any language for global reach.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Extensions</h3>
+          <p class="text-gray-600 leading-relaxed">33+ extensions and counting! Payment gateways, channel managers, and more are already available.</p>
+        </div>
+        <!-- Feature 4 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Intuitive Calendar</h3>
+          <p class="text-gray-600 leading-relaxed">Simple interface that provides a quick overview of your property at a glance.</p>
+        </div>
+        <!-- Feature 5 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">User Management</h3>
+          <p class="text-gray-600 leading-relaxed">Assign users to different roles with granular permissions for each property.</p>
+        </div>
+        <!-- Feature 6 -->
+        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Invoices</h3>
+          <p class="text-gray-600 leading-relaxed">Create and automatically deliver invoices to your clients by email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== INTEGRATIONS ======== -->
+  <section class="py-20 sm:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">Integrations</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Connect With Your Favorite Tools</h2>
+        <p class="text-lg text-gray-500">Seamlessly integrate with the platforms you already use.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12 reveal">
+        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
+          <img src="./assets/img/integrations/booking.png" alt="Booking.com" class="max-h-12 object-contain">
+        </div>
+        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
+          <img src="./assets/img/integrations/airbnb.png" alt="Airbnb" class="max-h-12 object-contain">
+        </div>
+        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
+          <img src="./assets/img/integrations/expedia.png" alt="Expedia" class="max-h-12 object-contain">
+        </div>
+        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
+          <img src="./assets/img/integrations/channex.png" alt="Channex" class="max-h-12 object-contain">
+        </div>
+        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
+          <img src="./assets/img/integrations/stripe.png" alt="Stripe" class="max-h-12 object-contain">
+        </div>
+        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
+          <img src="./assets/img/integrations/nexio.png" alt="Nexio" class="max-h-12 object-contain">
+        </div>
+        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
+          <img src="./assets/img/integrations/kovena.png" alt="Kovena" class="max-h-12 object-contain">
+        </div>
+        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
+          <img src="./assets/img/integrations/siteminder.png" alt="SiteMinder" class="max-h-12 object-contain">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== COMMUNITY CTA ======== -->
+  <section class="py-20 sm:py-28 bg-dark relative overflow-hidden">
+    <div class="orb orb-1 w-64 h-64 bg-indigo-600 -top-20 -right-20 opacity-20"></div>
+    <div class="orb orb-2 w-48 h-48 bg-purple-600 bottom-0 left-10 opacity-20"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-md mx-auto">
+        <!-- Discord -->
+        <div class="text-center reveal">
+          <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Join The Community</h3>
+          <p class="text-gray-400 mb-6">Get support and exchange ideas with our growing dev community.</p>
+          <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-6 py-3 rounded-full transition-all">
+            Join Discord
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="py-12 bg-gray-900 text-gray-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center text-center space-y-4">
+        <a href="http://minical.io" class="text-xl font-bold text-white">MiniCal</a>
+        <p>Contact us at <a href="mailto:support@minical.io" class="text-indigo-400 hover:text-indigo-300 transition-colors">support@minical.io</a></p>
+        <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+          </svg>
+        </a>
+        <p class="text-sm">&copy; <script>document.write(new Date().getFullYear());</script> MiniCal</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======== VANILLA JS ======== -->
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+
+    // Sticky header with glassmorphism
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
 </html>
