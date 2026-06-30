@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Partners - MiniCal</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Partners — MiniCal</title>
   <link rel="icon" href="assets/img/Icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-          colors: { dark: '#0F0D1A' }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JMCT393M0"></script>
   <script>
@@ -28,216 +16,261 @@
     gtag('js', new Date());
     gtag('config', 'G-5JMCT393M0');
   </script>
-</head>
-<body class="font-sans text-gray-800 antialiased">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; }
+    ::selection { background: #138A5E; color: #fff; }
 
-  <!-- ======== HEADER ======== -->
-  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <a href="index.html" class="text-xl font-bold text-white tracking-tight">MiniCal</a>
-        <nav class="hidden lg:flex items-center space-x-8">
-          <a href="partners.html" class="text-sm text-white font-semibold">Partners</a>
-          <a href="pricing.html" class="text-sm text-gray-300 hover:text-white transition-colors">Pricing</a>
-          <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Discord</a>
-        </nav>
-        <div class="hidden lg:flex items-center space-x-3">
-          <a href="http://web.minical.io/signup" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Sign Up</a>
-          <a href="http://web.minical.io/auth/login" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Log In</a>
-        </div>
-        <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Toggle menu">
-          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-    <div id="mobile-menu" class="hidden lg:hidden bg-dark/95 backdrop-blur-lg border-t border-white/10">
-      <div class="px-4 py-4 space-y-3">
-        <a href="partners.html" class="block text-white font-semibold">Partners</a>
-        <a href="pricing.html" class="block text-gray-300 hover:text-white transition-colors">Pricing</a>
-        <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Discord</a>
-        <hr class="border-white/10">
-        <a href="http://web.minical.io/signup" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Sign Up</a>
-        <a href="http://web.minical.io/auth/login" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Log In</a>
+    /* ---- hover states (matched to the homepage design) ---- */
+    .nav-link { color: #46453F; transition: color .15s ease; }
+    .nav-link:hover { color: #1B1A17; }
+    .btn-dark { transition: background .15s ease; }
+    .btn-dark:hover { background: #000; }
+    .btn-accent { transition: filter .15s ease; }
+    .btn-accent:hover { filter: brightness(1.08); }
+    .btn-outline { transition: border-color .15s ease; }
+    .btn-outline:hover { border-color: #1B1A17; }
+    .partner-card { transition: border-color .15s ease, transform .15s ease; }
+    .partner-card:hover { border-color: #D8D4CA; transform: translateY(-2px); }
+    .foot-link { transition: color .15s ease; }
+    .foot-link:hover { color: #1B1A17; }
+
+    /* ---- responsive ---- */
+    @media (max-width: 640px) {
+      .main-nav { display: none !important; }
+      .nav-actions a.signin { display: none !important; }
+      .partner-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .foot-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .section-pad { padding-top: 64px !important; padding-bottom: 64px !important; }
+    }
+  </style>
+</head>
+<body>
+<div style="--accent:#138A5E; background:#F7F5F1; color:#1B1A17; font-family:'Instrument Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;">
+
+  <!-- ===== NAV ===== -->
+  <header style="position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.1) blur(12px); background:rgba(247,245,241,0.82); border-bottom:1px solid #E7E3DA;">
+    <div style="max-width:1240px; margin:0 auto; padding:0 32px; height:72px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <a href="index.html" style="display:flex; align-items:center; gap:11px; text-decoration:none; color:#1B1A17;">
+        <span style="display:grid; grid-template-columns:repeat(3,5px); grid-template-rows:repeat(3,5px); gap:2px;">
+          <span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span>
+          <span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span>
+          <span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span>
+        </span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.02em;">MiniCal</span>
+      </a>
+      <nav class="main-nav" style="display:flex; align-items:center; gap:30px;">
+        <a href="index.html#platform" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:500;">Platform</a>
+        <a href="index.html#ai" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:500;">AI</a>
+        <a href="partners.html" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:600; color:#1B1A17;">Partners</a>
+        <a href="https://discord.gg/a7B7RXZ3w5" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:500;">Discord</a>
+      </nav>
+      <div class="nav-actions" style="display:flex; align-items:center; gap:14px;">
+        <a href="http://web.minical.io/auth/login" class="signin" style="font-size:15px; color:#1B1A17; text-decoration:none; font-weight:600;">Log In</a>
+        <a href="http://web.minical.io/signup" class="btn-dark" style="font-size:15px; color:#fff; background:#1B1A17; text-decoration:none; font-weight:600; padding:10px 18px; border-radius:9px;">Sign Up</a>
       </div>
     </div>
   </header>
 
-  <!-- ======== HERO ======== -->
-  <section class="hero-gradient-short relative overflow-hidden pt-28 pb-12">
-    <div class="orb orb-1 w-64 h-64 bg-indigo-600 -top-10 -right-20"></div>
-    <div class="orb orb-2 w-48 h-48 bg-purple-600 bottom-0 left-10"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Our Partners</h1>
-      <p class="text-lg text-gray-400 max-w-xl mx-auto mb-8">MiniCal powers PMS brands around the world.</p>
-      <a href="https://forms.gle/WCuFvC7vjXBR8EAB7" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold px-8 py-3.5 rounded-full transition-all shadow-lg shadow-indigo-500/25">
-        Become a Partner
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- ======== PARTNERS GRID ======== -->
-  <section class="py-20 sm:py-28 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-        <!-- Lodgeware -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/lodgeware.png" alt="Lodgeware" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- Hoteli -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/hoteli.png" alt="Hoteli Tech" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- Revsol -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="https://web.minical.io/images/revsol_logo.png" alt="Revsol" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- VacationsPal -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/vacationspal.png" alt="VacationsPal" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- Roomsy -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/roomsy.png" alt="Roomsy" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- Tripla -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="https://tripla.io/wp-content/uploads/2020/09/tripla-logo-pink-1-e1600758007928.png" alt="Tripla" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- Gogies -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="https://gogies.net/logo.png" alt="Gogies" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- OrderMock Partner -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="https://static.wixstatic.com/media/77ab6e_fb3ec30b16e248afa412b22d4a507469~mv2.png/v1/fill/w_483,h_123,al_c,q_85,usm_0.66_1.00_0.01/A0060578_orderMock_02100025_3 editado_pn.webp" alt="Partner" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- Stand Out Hotels -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="https://web.minical.io/images/standouthotel_logo.png" alt="Stand Out Hotels" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- S3 Partner -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="https://minical.s3.amazonaws.com/106/DF1FD53B47104A07B9896F4FF1800C3F" alt="Partner" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- Emforl -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/emforl.png" alt="Emforl" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- Smarthotel (text) -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <span class="text-2xl font-bold text-gray-700">Smarthotel</span>
-        </div>
-
-        <!-- Kabuk (text) -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <span class="text-2xl font-bold text-gray-700">Kabuk</span>
-        </div>
-
-        <!-- Sequoya (text) -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <span class="text-2xl font-bold text-gray-700">Sequoya</span>
-        </div>
-
-        <!-- Helping Hotels -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/helping-hotels.png" alt="Helping Hotels" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- The Lobby -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/the_Lobby_logo.jpg" alt="The Lobby" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- Roam Campground -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/roamcampaground.png" alt="Roam Campground" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- TCounter -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/tcounter.png" alt="TCounter" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- Room Marketing -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/roommarketing.png" alt="Room Marketing" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- AccoClix -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/accoclix.png" alt="AccoClix" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- Bendlala -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/bendlala.png" alt="Bendlala" class="max-h-16 max-w-full object-contain">
-        </div>
-
-        <!-- RoomThai -->
-        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover flex items-center justify-center min-h-[140px]">
-          <img src="./assets/img/roomthai.png" alt="RoomThai" class="max-h-16 max-w-full object-contain">
-        </div>
-
+  <!-- ===== HERO ===== -->
+  <section style="position:relative;">
+    <div style="position:absolute; inset:0; background-image:linear-gradient(#ECE8DF 1px,transparent 1px),linear-gradient(90deg,#ECE8DF 1px,transparent 1px); background-size:52px 52px; -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 30%,transparent 75%); mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 30%,transparent 75%); pointer-events:none;"></div>
+    <div style="position:relative; max-width:760px; margin:0 auto; padding:96px 32px 56px; text-align:center;">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent,#138A5E);">Our partners</span>
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(38px,5vw,64px); line-height:1.04; letter-spacing:-0.035em; margin:16px 0 0; color:#1B1A17;">
+        PMS brands built on MiniCal.
+      </h1>
+      <p style="font-size:19px; line-height:1.55; color:#56554E; max-width:520px; margin:22px auto 0;">
+        From boutique operators to global PMS companies — these teams run their own branded platform on MiniCal.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:34px;">
+        <a href="https://forms.gle/WCuFvC7vjXBR8EAB7" target="_blank" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
+          Become a partner
+          <span style="font-family:'JetBrains Mono',monospace;">&rarr;</span>
+        </a>
+        <a href="http://demo.minical.io" class="btn-outline" style="display:inline-flex; align-items:center; gap:9px; background:#fff; color:#1B1A17; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; border:1px solid #DBD7CD;">
+          Try the live demo
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ======== FOOTER ======== -->
-  <footer class="py-12 bg-gray-900 text-gray-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col items-center text-center space-y-4">
-        <a href="http://minical.io" class="text-xl font-bold text-white">MiniCal</a>
-        <p>Contact us at <a href="mailto:support@minical.io" class="text-indigo-400 hover:text-indigo-300 transition-colors">support@minical.io</a></p>
-        <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
-          </svg>
-        </a>
-        <p class="text-sm">&copy; <script>document.write(new Date().getFullYear());</script> MiniCal</p>
+  <!-- ===== PARTNERS GRID ===== -->
+  <section class="section-pad" style="max-width:1240px; margin:0 auto; padding:40px 32px 104px;">
+    <div class="partner-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+
+      <!-- Lodgeware -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/lodgeware.png" alt="Lodgeware" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- Hoteli -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/hoteli.png" alt="Hoteli Tech" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- Revsol -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="https://web.minical.io/images/revsol_logo.png" alt="Revsol" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- VacationsPal -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/vacationspal.png" alt="VacationsPal" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- Roomsy -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/roomsy.png" alt="Roomsy" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- Tripla -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="https://tripla.io/wp-content/uploads/2020/09/tripla-logo-pink-1-e1600758007928.png" alt="Tripla" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- Gogies -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="https://gogies.net/logo.png" alt="Gogies" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- OrderMock Partner -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="https://static.wixstatic.com/media/77ab6e_fb3ec30b16e248afa412b22d4a507469~mv2.png/v1/fill/w_483,h_123,al_c,q_85,usm_0.66_1.00_0.01/A0060578_orderMock_02100025_3 editado_pn.webp" alt="Partner" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- Stand Out Hotels -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="https://web.minical.io/images/standouthotel_logo.png" alt="Stand Out Hotels" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- S3 Partner -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="https://minical.s3.amazonaws.com/106/DF1FD53B47104A07B9896F4FF1800C3F" alt="Partner" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- Emforl -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/emforl.png" alt="Emforl" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- Smarthotel (text) -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:22px; letter-spacing:-0.01em; color:#46453F;">Smarthotel</span>
+      </div>
+
+      <!-- Kabuk (text) -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:22px; letter-spacing:-0.01em; color:#46453F;">Kabuk</span>
+      </div>
+
+      <!-- Sequoya (text) -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:22px; letter-spacing:-0.01em; color:#46453F;">Sequoya</span>
+      </div>
+
+      <!-- Helping Hotels -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/helping-hotels.png" alt="Helping Hotels" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- The Lobby -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/the_Lobby_logo.jpg" alt="The Lobby" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- Roam Campground -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/roamcampaground.png" alt="Roam Campground" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- TCounter -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/tcounter.png" alt="TCounter" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- Room Marketing -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/roommarketing.png" alt="Room Marketing" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- AccoClix -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/accoclix.png" alt="AccoClix" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- Bendlala -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/bendlala.png" alt="Bendlala" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+      <!-- RoomThai -->
+      <div class="partner-card" style="background:#fff; border:1px solid #ECE8DF; border-radius:14px; padding:28px; display:flex; align-items:center; justify-content:center; min-height:150px;">
+        <img src="./assets/img/roomthai.png" alt="RoomThai" style="max-height:60px; max-width:100%; object-fit:contain;">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== PARTNER CTA ===== -->
+  <section style="max-width:1240px; margin:0 auto; padding:0 32px 104px;">
+    <div style="position:relative; overflow:hidden; background:#13231D; border-radius:24px; padding:72px 56px; text-align:center;">
+      <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px); background-size:46px 46px; pointer-events:none;"></div>
+      <div style="position:relative; max-width:560px; margin:0 auto;">
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(30px,3.6vw,46px); line-height:1.06; letter-spacing:-0.03em; color:#fff; margin:0;">Launch your PMS brand on MiniCal.</h2>
+        <p style="font-size:17px; color:#A9BDB1; line-height:1.55; margin:18px auto 0; max-width:460px;">Join the partners building their own whitelabel platform — your brand, your domain, powered invisibly by MiniCal.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:30px;">
+          <a href="https://forms.gle/WCuFvC7vjXBR8EAB7" target="_blank" class="btn-mint" style="background:#6FE3B0; color:#13231D; font-weight:700; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px;">Become a partner</a>
+          <a href="https://discord.gg/a7B7RXZ3w5" class="btn-ghost" style="background:transparent; color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; border:1px solid rgba(255,255,255,0.25);">Join the Discord</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="border-top:1px solid #E7E3DA; background:rgba(255,255,255,0.5);">
+    <div class="foot-grid" style="max-width:1240px; margin:0 auto; padding:56px 32px 40px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px;">
+      <div>
+        <div style="display:flex; align-items:center; gap:11px;">
+          <span style="display:grid; grid-template-columns:repeat(3,5px); grid-template-rows:repeat(3,5px); gap:2px;">
+            <span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span>
+            <span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span>
+            <span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span>
+          </span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.02em;">MiniCal</span>
+        </div>
+        <p style="font-size:14px; color:#6F6E66; line-height:1.55; margin:16px 0 0; max-width:280px;">The whitelabel, AI-powered PMS for property managers, hotel chains, and franchises.</p>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#A6A498; margin-bottom:14px;">Product</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="partners.html" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Partners</a>
+          <a href="http://demo.minical.io" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Live demo</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#A6A498; margin-bottom:14px;">Account</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="http://web.minical.io/signup" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Sign up</a>
+          <a href="http://web.minical.io/auth/login" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Log in</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#A6A498; margin-bottom:14px;">Community</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="https://discord.gg/a7B7RXZ3w5" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Discord</a>
+          <a href="mailto:hello@minical.io" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid #E7E3DA;">
+      <div style="max-width:1240px; margin:0 auto; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <span style="font-size:13px; color:#9A988E;">&copy; 2026 MiniCal</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#9A988E;">Build your own PMS brand.</span>
       </div>
     </div>
   </footer>
-
-  <!-- ======== VANILLA JS ======== -->
-  <script>
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('menu-icon-open');
-    const iconClose = document.getElementById('menu-icon-close');
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      iconOpen.classList.toggle('hidden');
-      iconClose.classList.toggle('hidden');
-    });
-
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('header-scrolled');
-      } else {
-        header.classList.remove('header-scrolled');
-      }
-    });
-  </script>
-
+</div>
 </body>
 </html>
