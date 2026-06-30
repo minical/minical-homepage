@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MiniCal - AI-Powered Property Management</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MiniCal — Multi-Property Management Platform Powered by AI</title>
   <link rel="icon" href="assets/img/Icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-          colors: { dark: '#0F0D1A' }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JMCT393M0"></script>
   <script>
@@ -28,355 +16,551 @@
     gtag('js', new Date());
     gtag('config', 'G-5JMCT393M0');
   </script>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; }
+    ::selection { background: #138A5E; color: #fff; }
+
+    /* ---- hover states (converted from the design's style-hover) ---- */
+    .nav-link { color: #46453F; transition: color .15s ease; }
+    .nav-link:hover { color: #1B1A17; }
+    .btn-dark { transition: background .15s ease; }
+    .btn-dark:hover { background: #000; }
+    .btn-accent { transition: filter .15s ease; }
+    .btn-accent:hover { filter: brightness(1.08); }
+    .btn-outline { transition: border-color .15s ease; }
+    .btn-outline:hover { border-color: #1B1A17; }
+    .btn-mint { transition: filter .15s ease; }
+    .btn-mint:hover { filter: brightness(1.05); }
+    .btn-ghost { transition: border-color .15s ease; }
+    .btn-ghost:hover { border-color: #fff; }
+    .ai-card { transition: background .15s ease; }
+    .ai-card:hover { background: #16291F; }
+    .feat-card { transition: border-color .15s ease; }
+    .feat-card:hover { border-color: #D8D4CA; }
+    .integ-card { transition: border-color .15s ease; }
+    .integ-card:hover { border-color: #D8D4CA; }
+    .foot-link { transition: color .15s ease; }
+    .foot-link:hover { color: #1B1A17; }
+
+    /* ---- responsive ---- */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr !important; gap: 64px !important; }
+      .hero-mock { margin: 46px 0 0 46px; }
+      .control-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+      .cmty-grid { grid-template-columns: 1fr !important; gap: 36px !important; padding: 56px 32px !important; }
+      .ai-grid, .plat-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 640px) {
+      .main-nav { display: none !important; }
+      .nav-actions a.signin { display: none !important; }
+      .ai-grid, .plat-grid { grid-template-columns: 1fr !important; }
+      .integ-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .foot-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .section-pad { padding-top: 64px !important; padding-bottom: 64px !important; }
+      .cmty-grid { padding: 40px 24px !important; }
+    }
+  </style>
 </head>
-<body class="font-sans text-gray-800 antialiased">
+<body>
+<div style="--accent:#138A5E; background:#F7F5F1; color:#1B1A17; font-family:'Instrument Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; overflow-x:hidden;">
 
-  <!-- ======== HEADER ======== -->
-  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <!-- Logo -->
-        <a href="index.html" class="text-xl font-bold text-white tracking-tight">MiniCal</a>
-
-        <!-- Desktop Nav -->
-        <nav class="hidden lg:flex items-center space-x-8">
-          <a href="partners.html" class="text-sm text-gray-300 hover:text-white transition-colors">Partners</a>
-          <a href="pricing.html" class="text-sm text-gray-300 hover:text-white transition-colors">Pricing</a>
-          <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Discord</a>
-        </nav>
-
-        <!-- Desktop Actions -->
-        <div class="hidden lg:flex items-center space-x-3">
-          <a href="http://web.minical.io/signup" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Sign Up</a>
-          <a href="http://web.minical.io/auth/login" target="_blank" class="text-sm text-gray-300 hover:text-white transition-colors">Log In</a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Toggle menu">
-          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-dark/95 backdrop-blur-lg border-t border-white/10">
-      <div class="px-4 py-4 space-y-3">
-        <a href="partners.html" class="block text-gray-300 hover:text-white transition-colors">Partners</a>
-        <a href="pricing.html" class="block text-gray-300 hover:text-white transition-colors">Pricing</a>
-        <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Discord</a>
-        <hr class="border-white/10">
-        <a href="http://web.minical.io/signup" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Sign Up</a>
-        <a href="http://web.minical.io/auth/login" target="_blank" class="block text-gray-300 hover:text-white transition-colors">Log In</a>
+  <!-- ===== NAV ===== -->
+  <header style="position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.1) blur(12px); background:rgba(247,245,241,0.82); border-bottom:1px solid #E7E3DA;">
+    <div style="max-width:1240px; margin:0 auto; padding:0 32px; height:72px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <a href="#top" style="display:flex; align-items:center; gap:11px; text-decoration:none; color:#1B1A17;">
+        <span style="display:grid; grid-template-columns:repeat(3,5px); grid-template-rows:repeat(3,5px); gap:2px;">
+          <span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span>
+          <span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span>
+          <span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span>
+        </span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; letter-spacing:-0.02em;">MiniCal</span>
+      </a>
+      <nav class="main-nav" style="display:flex; align-items:center; gap:30px;">
+        <a href="#platform" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:500;">Platform</a>
+        <a href="#ai" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:500;">AI</a>
+        <a href="https://www.minical.io/pricing.html" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:500;">Pricing</a>
+        <a href="https://www.minical.io/partners.html" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:500;">Partners</a>
+        <a href="https://discord.gg/a7B7RXZ3w5" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:500;">Discord</a>
+      </nav>
+      <div class="nav-actions" style="display:flex; align-items:center; gap:14px;">
+        <a href="http://web.minical.io/auth/login" class="signin" style="font-size:15px; color:#1B1A17; text-decoration:none; font-weight:600;">Log In</a>
+        <a href="http://web.minical.io/signup" class="btn-dark" style="font-size:15px; color:#fff; background:#1B1A17; text-decoration:none; font-weight:600; padding:10px 18px; border-radius:9px;">Sign Up</a>
       </div>
     </div>
   </header>
 
-  <!-- ======== HERO ======== -->
-  <section class="hero-gradient relative overflow-hidden min-h-[90vh] flex items-center">
-    <!-- Animated Orbs -->
-    <div class="orb orb-1 w-72 h-72 bg-indigo-600 top-20 -left-20"></div>
-    <div class="orb orb-2 w-96 h-96 bg-purple-600 -top-10 right-10"></div>
-    <div class="orb orb-3 w-64 h-64 bg-cyan-500 bottom-10 left-1/3"></div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-20">
-      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-8">
-        <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-        <span class="text-sm text-cyan-300">AI-Powered Intelligence Built In</span>
-      </div>
-      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
-        AI-Powered<br>
-        <span class="gradient-text">Property Management</span>
-      </h1>
-      <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
-        Flexible and whitelabel-ready. Build your own PMS brand on top of MiniCal with 50+ extensions and AI-driven intelligence.
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="http://demo.minical.io" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold px-8 py-3.5 rounded-full transition-all shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40">
-          Try Demo
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
-        <a href="partners.html" class="inline-flex items-center gap-2 border border-white/30 hover:border-white/60 text-white font-semibold px-8 py-3.5 rounded-full transition-all hover:bg-white/5">
-          Become a Partner
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== LOGO STRIP ======== -->
-  <section class="py-12 bg-gray-50 border-y border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-sm text-gray-500 mb-8 font-medium uppercase tracking-wider">Trusted by PMS partners worldwide</p>
-      <div class="flex flex-wrap items-center justify-center gap-12 md:gap-16">
-        <img src="./assets/img/lodgeware.png" alt="Lodgeware" class="h-10 object-contain logo-grayscale">
-        <img src="./assets/img/vacationspal.png" alt="VacationsPal" class="h-10 object-contain logo-grayscale">
-        <img src="./assets/img/roomsy.png" alt="Roomsy" class="h-10 object-contain logo-grayscale">
-        <img src="./assets/img/hoteli_2.png" alt="Hoteli" class="h-10 object-contain logo-grayscale">
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== AI FEATURES ======== -->
-  <section class="py-20 sm:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 reveal">
-        <p class="text-sm font-semibold text-cyan-600 uppercase tracking-wider mb-3">AI-Driven Intelligence</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4">
-          <span class="gradient-text">Smart Analytics</span> for Hospitality
-        </h2>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto">Maximize revenue and streamline operations with AI built specifically for property management.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- AI Card 1 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Dynamic Pricing</h3>
-          <p class="text-gray-600 leading-relaxed">AI-powered pricing recommendations that analyze market trends, occupancy patterns, and competitor rates to maximize your revenue.</p>
-        </div>
-        <!-- AI Card 2 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Predictive Analytics</h3>
-          <p class="text-gray-600 leading-relaxed">Real-time dashboards and predictive insights that help property owners make data-driven decisions.</p>
-        </div>
-        <!-- AI Card 3 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Demand Forecasting</h3>
-          <p class="text-gray-600 leading-relaxed">Predict demand, optimize room allocation, and reduce vacancies with intelligent forecasting powered by your booking data.</p>
-        </div>
-        <!-- AI Card 4 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">AI Concierge</h3>
-          <p class="text-gray-600 leading-relaxed">Automated guest communication that handles inquiries, booking confirmations, and personalized recommendations 24/7.</p>
-        </div>
-        <!-- AI Card 5 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Revenue Mgmt</h3>
-          <p class="text-gray-600 leading-relaxed">Comprehensive revenue management with yield optimization, channel performance analysis, and automated rate adjustments.</p>
-        </div>
-        <!-- AI Card 6 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-indigo-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.573-1.066z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Automated Operations</h3>
-          <p class="text-gray-600 leading-relaxed">Streamline housekeeping, maintenance scheduling, and operational workflows with AI-driven task automation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== SCREENSHOT ======== -->
-  <section class="py-20 sm:py-28 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 reveal">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">This Minimal Calendar</h2>
-        <p class="text-lg text-gray-500">Powers properties around the world</p>
-      </div>
-      <div class="reveal">
-        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200 max-w-5xl mx-auto">
-          <div class="flex items-center gap-2 px-4 py-3 bg-gray-100 border-b border-gray-200">
-            <span class="w-3 h-3 rounded-full bg-red-400"></span>
-            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
-            <span class="w-3 h-3 rounded-full bg-green-400"></span>
-          </div>
-          <img src="assets/img/booking.png" alt="MiniCal Booking Calendar" class="w-full">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== CORE FEATURES ======== -->
-  <section class="py-20 sm:py-28 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 reveal">
-        <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">Features</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4">Everything You Need</h2>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto">A complete property management system designed for flexibility and scale.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Feature 1 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Multi-Property Management</h3>
-          <p class="text-gray-600 leading-relaxed">Manage multiple properties or launch your own whitelabel PMS company from a single platform.</p>
-        </div>
-        <!-- Feature 2 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Multi-Language Support</h3>
-          <p class="text-gray-600 leading-relaxed">Customize and translate all your content to any language for global reach.</p>
-        </div>
-        <!-- Feature 3 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Extensions</h3>
-          <p class="text-gray-600 leading-relaxed">33+ extensions and counting! Payment gateways, channel managers, and more are already available.</p>
-        </div>
-        <!-- Feature 4 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Intuitive Calendar</h3>
-          <p class="text-gray-600 leading-relaxed">Simple interface that provides a quick overview of your property at a glance.</p>
-        </div>
-        <!-- Feature 5 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">User Management</h3>
-          <p class="text-gray-600 leading-relaxed">Assign users to different roles with granular permissions for each property.</p>
-        </div>
-        <!-- Feature 6 -->
-        <div class="bg-gray-50 rounded-2xl p-8 card-hover reveal">
-          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Invoices</h3>
-          <p class="text-gray-600 leading-relaxed">Create and automatically deliver invoices to your clients by email.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== INTEGRATIONS ======== -->
-  <section class="py-20 sm:py-28 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 reveal">
-        <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-3">Integrations</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Connect With Your Favorite Tools</h2>
-        <p class="text-lg text-gray-500">Seamlessly integrate with the platforms you already use.</p>
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12 reveal">
-        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
-          <img src="./assets/img/integrations/booking.png" alt="Booking.com" class="max-h-12 object-contain">
-        </div>
-        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
-          <img src="./assets/img/integrations/airbnb.png" alt="Airbnb" class="max-h-12 object-contain">
-        </div>
-        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
-          <img src="./assets/img/integrations/expedia.png" alt="Expedia" class="max-h-12 object-contain">
-        </div>
-        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
-          <img src="./assets/img/integrations/channex.png" alt="Channex" class="max-h-12 object-contain">
-        </div>
-        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
-          <img src="./assets/img/integrations/stripe.png" alt="Stripe" class="max-h-12 object-contain">
-        </div>
-        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
-          <img src="./assets/img/integrations/nexio.png" alt="Nexio" class="max-h-12 object-contain">
-        </div>
-        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
-          <img src="./assets/img/integrations/kovena.png" alt="Kovena" class="max-h-12 object-contain">
-        </div>
-        <div class="bg-white rounded-2xl p-6 flex items-center justify-center card-hover border border-gray-100">
-          <img src="./assets/img/integrations/siteminder.png" alt="SiteMinder" class="max-h-12 object-contain">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== COMMUNITY CTA ======== -->
-  <section class="py-20 sm:py-28 bg-dark relative overflow-hidden">
-    <div class="orb orb-1 w-64 h-64 bg-indigo-600 -top-20 -right-20 opacity-20"></div>
-    <div class="orb orb-2 w-48 h-48 bg-purple-600 bottom-0 left-10 opacity-20"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-md mx-auto">
-        <!-- Discord -->
-        <div class="text-center reveal">
-          <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-3">Join The Community</h3>
-          <p class="text-gray-400 mb-6">Get support and exchange ideas with our growing dev community.</p>
-          <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-6 py-3 rounded-full transition-all">
-            Join Discord
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+  <!-- ===== HERO ===== -->
+  <section id="top" style="position:relative;">
+    <div style="position:absolute; inset:0; background-image:linear-gradient(#ECE8DF 1px,transparent 1px),linear-gradient(90deg,#ECE8DF 1px,transparent 1px); background-size:52px 52px; -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 30%,transparent 75%); mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 30%,transparent 75%); pointer-events:none;"></div>
+    <div class="hero-grid" style="position:relative; max-width:1240px; margin:0 auto; padding:84px 32px 72px; display:grid; grid-template-columns:1.02fr 1fr; gap:56px; align-items:center;">
+      <div>
+        <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(42px,5.4vw,76px); line-height:1.0; letter-spacing:-0.035em; margin:0; color:#1B1A17;">
+          Multi-property<br>management platform<br><span style="color:var(--accent,#138A5E);">powered by AI.</span>
+        </h1>
+        <p style="font-size:19px; line-height:1.55; color:#56554E; max-width:480px; margin:24px 0 0;">
+          MiniCal is the Property Management Software built for control. Launch your own branded platform for hotel chains, franchises, and PMS companies.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:34px;">
+          <a href="http://demo.minical.io" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
+            Try the live demo
+            <span style="font-family:'JetBrains Mono',monospace;">&rarr;</span>
+          </a>
+          <a href="https://www.minical.io/partners.html" class="btn-outline" style="display:inline-flex; align-items:center; gap:9px; background:#fff; color:#1B1A17; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; border:1px solid #DBD7CD;">
+            Become a partner
           </a>
         </div>
+        <div style="display:flex; flex-wrap:wrap; gap:28px; margin-top:40px;">
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:26px; letter-spacing:-0.02em;">50+</div>
+            <div style="font-size:13px; color:#6F6E66; margin-top:2px;">Extensions &amp; integrations</div>
+          </div>
+          <div style="width:1px; background:#DDD9CF;"></div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:26px; letter-spacing:-0.02em;">100%</div>
+            <div style="font-size:13px; color:#6F6E66; margin-top:2px;">Whitelabel &amp; yours to brand</div>
+          </div>
+          <div style="width:1px; background:#DDD9CF;"></div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:26px; letter-spacing:-0.02em;">&infin;</div>
+            <div style="font-size:13px; color:#6F6E66; margin-top:2px;">Properties per account</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product calendar mockup -->
+      <div class="hero-mock" style="position:relative;">
+        <!-- stacked hotels behind -->
+        <div style="position:absolute; top:-46px; left:-46px; right:46px; bottom:46px; background:#fff; border:1px solid #E7E3DA; border-radius:16px; z-index:1; box-shadow:0 22px 40px -28px rgba(27,26,23,0.3);">
+          <div style="height:30px; display:flex; align-items:center; gap:8px; padding:0 18px;">
+            <span style="width:7px;height:7px;border-radius:50%;background:#C98A2E;"></span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; color:#8A887E;">Hotel 3 &middot; Metro Suites</span>
+          </div>
+        </div>
+        <div style="position:absolute; top:-23px; left:-23px; right:23px; bottom:23px; background:#fff; border:1px solid #E7E3DA; border-radius:16px; z-index:2; box-shadow:0 22px 40px -28px rgba(27,26,23,0.3);">
+          <div style="height:30px; display:flex; align-items:center; gap:8px; padding:0 18px;">
+            <span style="width:7px;height:7px;border-radius:50%;background:#3B6FB0;"></span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; color:#8A887E;">Hotel 2 &middot; Sierra Lodge</span>
+          </div>
+        </div>
+        <div style="position:relative; z-index:3; background:#fff; border:1px solid #E7E3DA; border-radius:18px; box-shadow:0 30px 60px -30px rgba(27,26,23,0.28), 0 8px 20px -12px rgba(27,26,23,0.12); overflow:hidden;">
+          <!-- card header -->
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #EEEAE1;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; color:#56554E; display:flex; align-items:center; gap:8px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--accent,#138A5E);"></span>Hotel 1 &middot; Harbor View</div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent,#138A5E);">&#9679; live</div>
+          </div>
+          <!-- calendar toolbar -->
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 18px 12px;">
+            <div>
+              <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px;">Harbor View Hotel</div>
+              <div style="font-size:12px; color:#8A887E; margin-top:2px;">May 2026 &middot; 5 of 24 rooms shown</div>
+            </div>
+          </div>
+          <!-- day header -->
+          <div style="display:grid; grid-template-columns:96px 1fr; padding:0 18px;">
+            <div></div>
+            <div style="display:grid; grid-template-columns:repeat(7,1fr); border-bottom:1px solid #EEEAE1;">
+              <div style="text-align:center; padding-bottom:8px;"><div style="font-size:10px;color:#A6A498;letter-spacing:0.06em;">MON</div><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;">12</div></div>
+              <div style="text-align:center; padding-bottom:8px;"><div style="font-size:10px;color:#A6A498;letter-spacing:0.06em;">TUE</div><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;">13</div></div>
+              <div style="text-align:center; padding-bottom:8px;"><div style="font-size:10px;color:#A6A498;letter-spacing:0.06em;">WED</div><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;">14</div></div>
+              <div style="text-align:center; padding-bottom:8px;"><div style="font-size:10px;color:#A6A498;letter-spacing:0.06em;">THU</div><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;">15</div></div>
+              <div style="text-align:center; padding-bottom:8px; background:#FBF6EC;"><div style="font-size:10px;color:var(--accent,#138A5E);letter-spacing:0.06em;font-weight:600;">FRI</div><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--accent,#138A5E);">16</div></div>
+              <div style="text-align:center; padding-bottom:8px;"><div style="font-size:10px;color:#A6A498;letter-spacing:0.06em;">SAT</div><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;">17</div></div>
+              <div style="text-align:center; padding-bottom:8px;"><div style="font-size:10px;color:#A6A498;letter-spacing:0.06em;">SUN</div><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;">18</div></div>
+            </div>
+          </div>
+          <!-- room rows -->
+          <div style="padding:6px 18px 18px;">
+            <!-- 101 -->
+            <div style="display:grid; grid-template-columns:96px 1fr; align-items:center; border-top:1px solid #F2EEE5;">
+              <div style="padding:10px 8px 10px 0;">
+                <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; color:#1B1A17;">101</div>
+                <div style="font-size:10px; color:#A6A498;">King</div>
+              </div>
+              <div style="position:relative; height:46px; display:grid; grid-template-columns:repeat(7,1fr);">
+                <div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #FBF6EC; background:#FDFAF3;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div>
+                <div style="position:absolute; top:7px; bottom:7px; left:calc(0% + 3px); width:calc(42.857% - 6px); background:#138A5E; color:#fff; border-radius:7px; display:flex; align-items:center; padding:0 9px; font-size:11px; font-weight:600; font-family:'Space Grotesk',sans-serif; overflow:hidden; white-space:nowrap; box-shadow:0 1px 2px rgba(0,0,0,0.08);">A. Chen</div>
+                <div style="position:absolute; top:7px; bottom:7px; left:calc(57.143% + 3px); width:calc(42.857% - 6px); background:#3B6FB0; color:#fff; border-radius:7px; display:flex; align-items:center; padding:0 9px; font-size:11px; font-weight:600; font-family:'Space Grotesk',sans-serif; overflow:hidden; white-space:nowrap; box-shadow:0 1px 2px rgba(0,0,0,0.08);">M. Park</div>
+              </div>
+            </div>
+            <!-- 102 -->
+            <div style="display:grid; grid-template-columns:96px 1fr; align-items:center; border-top:1px solid #F2EEE5;">
+              <div style="padding:10px 8px 10px 0;">
+                <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; color:#1B1A17;">102</div>
+                <div style="font-size:10px; color:#A6A498;">King</div>
+              </div>
+              <div style="position:relative; height:46px; display:grid; grid-template-columns:repeat(7,1fr);">
+                <div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #FBF6EC; background:#FDFAF3;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div>
+                <div style="position:absolute; top:7px; bottom:7px; left:calc(14.286% + 3px); width:calc(57.143% - 6px); background:#C98A2E; color:#fff; border-radius:7px; display:flex; align-items:center; padding:0 9px; font-size:11px; font-weight:600; font-family:'Space Grotesk',sans-serif; overflow:hidden; white-space:nowrap; box-shadow:0 1px 2px rgba(0,0,0,0.08);">Okafor party</div>
+              </div>
+            </div>
+            <!-- 201 -->
+            <div style="display:grid; grid-template-columns:96px 1fr; align-items:center; border-top:1px solid #F2EEE5;">
+              <div style="padding:10px 8px 10px 0;">
+                <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; color:#1B1A17;">201</div>
+                <div style="font-size:10px; color:#A6A498;">Suite</div>
+              </div>
+              <div style="position:relative; height:46px; display:grid; grid-template-columns:repeat(7,1fr);">
+                <div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #FBF6EC; background:#FDFAF3;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div>
+                <div style="position:absolute; top:7px; bottom:7px; left:calc(0% + 3px); width:calc(28.571% - 6px); background:#C25E4B; color:#fff; border-radius:7px; display:flex; align-items:center; padding:0 9px; font-size:11px; font-weight:600; font-family:'Space Grotesk',sans-serif; overflow:hidden; white-space:nowrap; box-shadow:0 1px 2px rgba(0,0,0,0.08);">Rossi</div>
+                <div style="position:absolute; top:7px; bottom:7px; left:calc(42.857% + 3px); width:calc(57.143% - 6px); background:#138A5E; color:#fff; border-radius:7px; display:flex; align-items:center; padding:0 9px; font-size:11px; font-weight:600; font-family:'Space Grotesk',sans-serif; overflow:hidden; white-space:nowrap; box-shadow:0 1px 2px rgba(0,0,0,0.08);">T. M&uuml;ller</div>
+              </div>
+            </div>
+            <!-- 202 -->
+            <div style="display:grid; grid-template-columns:96px 1fr; align-items:center; border-top:1px solid #F2EEE5;">
+              <div style="padding:10px 8px 10px 0;">
+                <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; color:#1B1A17;">202</div>
+                <div style="font-size:10px; color:#A6A498;">Twin</div>
+              </div>
+              <div style="position:relative; height:46px; display:grid; grid-template-columns:repeat(7,1fr);">
+                <div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #FBF6EC; background:#FDFAF3;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div>
+                <div style="position:absolute; top:7px; bottom:7px; left:calc(28.571% + 3px); width:calc(57.143% - 6px); background:#3B6FB0; color:#fff; border-radius:7px; display:flex; align-items:center; padding:0 9px; font-size:11px; font-weight:600; font-family:'Space Grotesk',sans-serif; overflow:hidden; white-space:nowrap; box-shadow:0 1px 2px rgba(0,0,0,0.08);">Nguyen</div>
+              </div>
+            </div>
+            <!-- 301 -->
+            <div style="display:grid; grid-template-columns:96px 1fr; align-items:center; border-top:1px solid #F2EEE5;">
+              <div style="padding:10px 8px 10px 0;">
+                <div style="font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:600; color:#1B1A17;">301</div>
+                <div style="font-size:10px; color:#A6A498;">Deluxe</div>
+              </div>
+              <div style="position:relative; height:46px; display:grid; grid-template-columns:repeat(7,1fr);">
+                <div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #FBF6EC; background:#FDFAF3;"></div><div style="border-left:1px solid #F4F0E7;"></div><div style="border-left:1px solid #F4F0E7;"></div>
+                <div style="position:absolute; top:7px; bottom:7px; left:calc(0% + 3px); width:calc(57.143% - 6px); background:#C98A2E; color:#fff; border-radius:7px; display:flex; align-items:center; padding:0 9px; font-size:11px; font-weight:600; font-family:'Space Grotesk',sans-serif; overflow:hidden; white-space:nowrap; box-shadow:0 1px 2px rgba(0,0,0,0.08);">Haddad</div>
+                <div style="position:absolute; top:7px; bottom:7px; left:calc(71.429% + 3px); width:calc(28.571% - 6px); background:#C25E4B; color:#fff; border-radius:7px; display:flex; align-items:center; padding:0 9px; font-size:11px; font-weight:600; font-family:'Space Grotesk',sans-serif; overflow:hidden; white-space:nowrap; box-shadow:0 1px 2px rgba(0,0,0,0.08);">Silva</div>
+              </div>
+            </div>
+          </div>
+          <!-- AI insight strip -->
+          <div style="display:flex; align-items:center; gap:11px; margin:0 18px 18px; padding:12px 14px; background:#13231D; border-radius:11px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.08em; color:#6FE3B0; background:rgba(111,227,176,0.13); padding:4px 7px; border-radius:5px;">AI</span>
+            <span style="font-size:12.5px; color:#E7EFE9; line-height:1.35;">Demand spikes Fri&ndash;Sat. <span style="color:#fff;font-weight:600;">Raise rates 14%</span> to capture an est. <span style="color:#6FE3B0;font-weight:600;">+$2,180</span> this week.</span>
+            <span style="margin-left:auto; font-size:11px; color:#13231D; background:#6FE3B0; font-weight:700; padding:5px 10px; border-radius:6px; white-space:nowrap;">Apply</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- audience strip -->
+    <div style="position:relative; border-top:1px solid #E7E3DA; border-bottom:1px solid #E7E3DA; background:rgba(255,255,255,0.5);">
+      <div style="max-width:1240px; margin:0 auto; padding:20px 32px; display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#9A988E;">Built for</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px;">PMS companies</span>
+        <span style="color:#D8D4CA;">/</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px;">Hotel chains</span>
+        <span style="color:#D8D4CA;">/</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px;">Franchises</span>
+        <span style="color:#D8D4CA;">/</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px;">Property managers</span>
+      </div>
     </div>
   </section>
 
-  <!-- ======== FOOTER ======== -->
-  <footer class="py-12 bg-gray-900 text-gray-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col items-center text-center space-y-4">
-        <a href="http://minical.io" class="text-xl font-bold text-white">MiniCal</a>
-        <p>Contact us at <a href="mailto:support@minical.io" class="text-indigo-400 hover:text-indigo-300 transition-colors">support@minical.io</a></p>
-        <a href="https://discord.gg/a7B7RXZ3w5" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
-          </svg>
-        </a>
-        <p class="text-sm">&copy; <script>document.write(new Date().getFullYear());</script> MiniCal</p>
+  <!-- ===== TRUST ===== -->
+  <section style="max-width:1240px; margin:0 auto; padding:46px 32px;">
+    <div style="text-align:center; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#9A988E; margin-bottom:26px;">Trusted by PMS partners worldwide</div>
+    <div style="display:flex; align-items:center; justify-content:center; gap:18px 56px; flex-wrap:wrap;">
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">Lodgeware</span>
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">VacationsPal</span>
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">Roomsy</span>
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">Hoteli</span>
+    </div>
+  </section>
+
+  <!-- ===== AI SECTION ===== -->
+  <section id="ai" style="background:#13231D; color:#EAF1EC; position:relative; overflow:hidden;">
+    <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.035) 1px,transparent 1px); background-size:52px 52px; pointer-events:none;"></div>
+    <div class="section-pad" style="position:relative; max-width:1240px; margin:0 auto; padding:104px 32px;">
+      <div style="max-width:680px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#6FE3B0;">AI-driven intelligence</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(34px,4.2vw,54px); line-height:1.04; letter-spacing:-0.03em; margin:16px 0 0; color:#fff;">
+          Intelligence that runs the numbers, so your team runs the property.
+        </h2>
+        <p style="font-size:18px; line-height:1.55; color:#A9BDB1; margin:20px 0 0; max-width:560px;">
+          AI built specifically for hospitality &mdash; analyzing every booking, rate, and pattern across your portfolio to maximize revenue and automate the busywork.
+        </p>
+      </div>
+      <div class="ai-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:56px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.08); border-radius:16px; overflow:hidden;">
+        <div class="ai-card" style="background:#13231D; padding:30px 28px; min-height:200px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6FE3B0;">01</span>
+            <span style="width:8px;height:8px;border-radius:2px;background:#6FE3B0;opacity:0.55;"></span>
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.01em; margin:22px 0 0; color:#fff;">Dynamic Pricing</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#9DB1A5; margin:10px 0 0;">AI rate recommendations from market trends, occupancy patterns, and competitor rates &mdash; to maximize revenue automatically.</p>
+        </div>
+        <div class="ai-card" style="background:#13231D; padding:30px 28px; min-height:200px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6FE3B0;">02</span>
+            <span style="width:8px;height:8px;border-radius:2px;background:#6FE3B0;opacity:0.55;"></span>
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.01em; margin:22px 0 0; color:#fff;">Predictive Analytics</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#9DB1A5; margin:10px 0 0;">Real-time dashboards and predictive insights so owners make data-driven decisions across every property.</p>
+        </div>
+        <div class="ai-card" style="background:#13231D; padding:30px 28px; min-height:200px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6FE3B0;">03</span>
+            <span style="width:8px;height:8px;border-radius:2px;background:#6FE3B0;opacity:0.55;"></span>
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.01em; margin:22px 0 0; color:#fff;">Demand Forecasting</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#9DB1A5; margin:10px 0 0;">Predict demand, optimize room allocation, and reduce vacancies with forecasting powered by your booking data.</p>
+        </div>
+        <div class="ai-card" style="background:#13231D; padding:30px 28px; min-height:200px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6FE3B0;">04</span>
+            <span style="width:8px;height:8px;border-radius:2px;background:#6FE3B0;opacity:0.55;"></span>
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.01em; margin:22px 0 0; color:#fff;">AI Concierge</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#9DB1A5; margin:10px 0 0;">Automated guest communication that handles inquiries, confirmations, and personalized recommendations 24/7.</p>
+        </div>
+        <div class="ai-card" style="background:#13231D; padding:30px 28px; min-height:200px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6FE3B0;">05</span>
+            <span style="width:8px;height:8px;border-radius:2px;background:#6FE3B0;opacity:0.55;"></span>
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.01em; margin:22px 0 0; color:#fff;">Smart Revenue Mgmt</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#9DB1A5; margin:10px 0 0;">Yield optimization, channel performance analysis, and automated rate adjustments across the portfolio.</p>
+        </div>
+        <div class="ai-card" style="background:#13231D; padding:30px 28px; min-height:200px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#6FE3B0;">06</span>
+            <span style="width:8px;height:8px;border-radius:2px;background:#6FE3B0;opacity:0.55;"></span>
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:20px; letter-spacing:-0.01em; margin:22px 0 0; color:#fff;">Automated Operations</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#9DB1A5; margin:10px 0 0;">AI-driven housekeeping, maintenance scheduling, and operational workflows that run themselves.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTROL / WHITELABEL ===== -->
+  <section class="section-pad" style="max-width:1240px; margin:0 auto; padding:104px 32px;">
+    <div class="control-grid" style="display:grid; grid-template-columns:1fr 1.05fr; gap:64px; align-items:center;">
+      <div>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent,#138A5E);">Total control</span>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(32px,4vw,50px); line-height:1.06; letter-spacing:-0.03em; margin:16px 0 0;">
+          Your brand. Your rules. Your platform.
+        </h2>
+        <p style="font-size:18px; line-height:1.55; color:#56554E; margin:20px 0 0;">
+          MiniCal is whitelabel from the ground up. Run one boutique or a thousand-key franchise on the same foundation &mdash; with granular roles, per-property settings, and 50+ extensions you switch on as you grow.
+        </p>
+        <div style="display:flex; flex-direction:column; gap:14px; margin-top:30px;">
+          <div style="display:flex; align-items:flex-start; gap:13px;">
+            <span style="flex:none; margin-top:3px; width:20px; height:20px; border-radius:6px; background:#E1EFE8; color:var(--accent,#138A5E); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">&#10003;</span>
+            <div>
+              <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px;">100% whitelabel</span>
+              <span style="font-size:16px; color:#6F6E66;"> &mdash; your logo, domain, and brand &mdash; MiniCal stays invisible</span>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:13px;">
+            <span style="flex:none; margin-top:3px; width:20px; height:20px; border-radius:6px; background:#E1EFE8; color:var(--accent,#138A5E); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">&#10003;</span>
+            <div>
+              <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px;">Granular roles</span>
+              <span style="font-size:16px; color:#6F6E66;"> &mdash; assign users and permissions per property and per brand</span>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:13px;">
+            <span style="flex:none; margin-top:3px; width:20px; height:20px; border-radius:6px; background:#E1EFE8; color:var(--accent,#138A5E); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">&#10003;</span>
+            <div>
+              <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px;">Multi-property</span>
+              <span style="font-size:16px; color:#6F6E66;"> &mdash; one boutique or a thousand-key franchise, one platform</span>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:13px;">
+            <span style="flex:none; margin-top:3px; width:20px; height:20px; border-radius:6px; background:#E1EFE8; color:var(--accent,#138A5E); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">&#10003;</span>
+            <div>
+              <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px;">50+ extensions</span>
+              <span style="font-size:16px; color:#6F6E66;"> &mdash; switch on payments, channels, and tools as you scale</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- brand-control visual -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div style="background:#1B1A17; border-radius:16px; padding:24px; color:#fff; aspect-ratio:1; display:flex; flex-direction:column; justify-content:space-between;">
+          <div style="display:grid; grid-template-columns:repeat(3,9px); grid-template-rows:repeat(3,9px); gap:3px;">
+            <span style="background:#fff;width:9px;height:9px;border-radius:2px;"></span><span style="background:#fff;width:9px;height:9px;border-radius:2px;"></span><span style="background:#6FE3B0;width:9px;height:9px;border-radius:2px;"></span>
+            <span style="background:#fff;width:9px;height:9px;border-radius:2px;"></span><span style="background:#6FE3B0;width:9px;height:9px;border-radius:2px;"></span><span style="background:#fff;width:9px;height:9px;border-radius:2px;"></span>
+            <span style="background:#6FE3B0;width:9px;height:9px;border-radius:2px;"></span><span style="background:#fff;width:9px;height:9px;border-radius:2px;"></span><span style="background:#fff;width:9px;height:9px;border-radius:2px;"></span>
+          </div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:22px;">YourBrand PMS</div>
+            <div style="font-size:12px; color:#9DB1A5; margin-top:4px;">Powered by MiniCal &mdash; invisibly.</div>
+          </div>
+        </div>
+        <div style="background:#fff; border:1px solid #E7E3DA; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#9A988E; letter-spacing:0.06em;">PORTFOLIO</div>
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:13px;font-weight:600;font-family:'Space Grotesk',sans-serif;">Harbor View</span><span style="font-size:11px;color:#0E6B49;background:#E1EFE8;padding:3px 7px;border-radius:5px;">94% occ</span></div>
+            <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:13px;font-weight:600;font-family:'Space Grotesk',sans-serif;">Sierra Lodge</span><span style="font-size:11px;color:#0E6B49;background:#E1EFE8;padding:3px 7px;border-radius:5px;">88% occ</span></div>
+            <div style="display:flex; align-items:center; justify-content:space-between;"><span style="font-size:13px;font-weight:600;font-family:'Space Grotesk',sans-serif;">Metro Suites</span><span style="font-size:11px;color:#8A6D12;background:#F6ECCF;padding:3px 7px;border-radius:5px;">72% occ</span></div>
+          </div>
+          <div style="margin-top:auto; padding-top:12px; border-top:1px solid #F2EEE5; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-size:12px; color:#8A887E;">+ 21 more</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px;">24 sites</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLATFORM FEATURES ===== -->
+  <section id="platform" style="background:#fff; border-top:1px solid #EEEAE1; border-bottom:1px solid #EEEAE1;">
+    <div class="section-pad" style="max-width:1240px; margin:0 auto; padding:104px 32px;">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap; margin-bottom:52px;">
+        <div>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent,#138A5E);">The platform</span>
+          <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(32px,4vw,50px); line-height:1.06; letter-spacing:-0.03em; margin:14px 0 0;">Everything a property runs on.</h2>
+        </div>
+        <p style="font-size:17px; color:#6F6E66; max-width:360px; line-height:1.55;">A complete PMS designed for flexibility and scale &mdash; from a single calendar to a multi-brand portfolio.</p>
+      </div>
+      <div class="plat-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+        <div class="feat-card" style="border:1px solid #ECE8DF; border-radius:14px; padding:28px; background:#FDFCFA;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#B0AEA2;">01</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; letter-spacing:-0.01em; margin:16px 0 0;">Multi-Property</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#6F6E66; margin:9px 0 0;">Manage many properties or launch your own whitelabel PMS company from one platform.</p>
+        </div>
+        <div class="feat-card" style="border:1px solid #ECE8DF; border-radius:14px; padding:28px; background:#FDFCFA;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#B0AEA2;">02</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; letter-spacing:-0.01em; margin:16px 0 0;">Multi-Language</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#6F6E66; margin:9px 0 0;">Customize and translate all your content to any language for global reach.</p>
+        </div>
+        <div class="feat-card" style="border:1px solid #ECE8DF; border-radius:14px; padding:28px; background:#FDFCFA;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#B0AEA2;">03</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; letter-spacing:-0.01em; margin:16px 0 0;">Extensions</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#6F6E66; margin:9px 0 0;">33+ extensions and counting &mdash; payment gateways, channel managers, and more.</p>
+        </div>
+        <div class="feat-card" style="border:1px solid #ECE8DF; border-radius:14px; padding:28px; background:#FDFCFA;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#B0AEA2;">04</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; letter-spacing:-0.01em; margin:16px 0 0;">Intuitive Calendar</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#6F6E66; margin:9px 0 0;">A simple interface for a quick overview of your property at a glance.</p>
+        </div>
+        <div class="feat-card" style="border:1px solid #ECE8DF; border-radius:14px; padding:28px; background:#FDFCFA;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#B0AEA2;">05</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; letter-spacing:-0.01em; margin:16px 0 0;">User Management</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#6F6E66; margin:9px 0 0;">Assign users to roles with granular permissions for each property.</p>
+        </div>
+        <div class="feat-card" style="border:1px solid #ECE8DF; border-radius:14px; padding:28px; background:#FDFCFA;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#B0AEA2;">06</div>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; letter-spacing:-0.01em; margin:16px 0 0;">Invoices</h3>
+          <p style="font-size:14.5px; line-height:1.5; color:#6F6E66; margin:9px 0 0;">Create and automatically deliver invoices to your clients by email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INTEGRATIONS ===== -->
+  <section class="section-pad" style="max-width:1240px; margin:0 auto; padding:104px 32px;">
+    <div style="text-align:center; max-width:620px; margin:0 auto;">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent,#138A5E);">Integrations</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(32px,4vw,50px); line-height:1.06; letter-spacing:-0.03em; margin:14px 0 0;">Connected to the tools you already run on.</h2>
+      <p style="font-size:17px; color:#6F6E66; margin:18px 0 0; line-height:1.55;">Channel managers, OTAs, and payment gateways &mdash; wired in and ready.</p>
+    </div>
+    <div class="integ-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:48px;">
+      <div class="integ-card" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#fff; border:1px solid #ECE8DF; border-radius:12px; padding:24px;">
+        <span style="width:10px; height:10px; border-radius:3px; background:#3B6FB0;"></span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; color:#46453F;">Booking.com</span>
+      </div>
+      <div class="integ-card" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#fff; border:1px solid #ECE8DF; border-radius:12px; padding:24px;">
+        <span style="width:10px; height:10px; border-radius:3px; background:#C25E4B;"></span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; color:#46453F;">Airbnb</span>
+      </div>
+      <div class="integ-card" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#fff; border:1px solid #ECE8DF; border-radius:12px; padding:24px;">
+        <span style="width:10px; height:10px; border-radius:3px; background:#C98A2E;"></span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; color:#46453F;">Expedia</span>
+      </div>
+      <div class="integ-card" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#fff; border:1px solid #ECE8DF; border-radius:12px; padding:24px;">
+        <span style="width:10px; height:10px; border-radius:3px; background:#138A5E;"></span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; color:#46453F;">Channex</span>
+      </div>
+      <div class="integ-card" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#fff; border:1px solid #ECE8DF; border-radius:12px; padding:24px;">
+        <span style="width:10px; height:10px; border-radius:3px; background:#5B5BD6;"></span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; color:#46453F;">Stripe</span>
+      </div>
+      <div class="integ-card" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#fff; border:1px solid #ECE8DF; border-radius:12px; padding:24px;">
+        <span style="width:10px; height:10px; border-radius:3px; background:#3B6FB0;"></span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; color:#46453F;">Nexio</span>
+      </div>
+      <div class="integ-card" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#fff; border:1px solid #ECE8DF; border-radius:12px; padding:24px;">
+        <span style="width:10px; height:10px; border-radius:3px; background:#138A5E;"></span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; color:#46453F;">Kovena</span>
+      </div>
+      <div class="integ-card" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#fff; border:1px solid #ECE8DF; border-radius:12px; padding:24px;">
+        <span style="width:10px; height:10px; border-radius:3px; background:#C25E4B;"></span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px; color:#46453F;">SiteMinder</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMMUNITY CTA ===== -->
+  <section style="max-width:1240px; margin:0 auto; padding:0 32px 104px;">
+    <div class="cmty-grid" style="position:relative; overflow:hidden; background:#13231D; border-radius:24px; padding:72px 56px; display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center;">
+      <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px); background-size:46px 46px; pointer-events:none;"></div>
+      <div style="position:relative;">
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(30px,3.6vw,46px); line-height:1.06; letter-spacing:-0.03em; color:#fff; margin:0;">Build your PMS brand on MiniCal.</h2>
+        <p style="font-size:17px; color:#A9BDB1; line-height:1.55; margin:18px 0 0; max-width:460px;">Spin up the live demo, or join a growing community of developers and operators extending the platform.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:30px;">
+          <a href="http://demo.minical.io" class="btn-mint" style="background:#6FE3B0; color:#13231D; font-weight:700; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px;">Try the demo</a>
+          <a href="https://discord.gg/a7B7RXZ3w5" class="btn-ghost" style="background:transparent; color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; border:1px solid rgba(255,255,255,0.25);">Join the Discord</a>
+        </div>
+      </div>
+      <div style="position:relative; display:flex; flex-direction:column; gap:12px;">
+        <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:18px 20px;">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; color:#fff;">33+</div>
+          <div style="font-size:13px; color:#9DB1A5; margin-top:2px;">Extensions and counting</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:18px 20px;">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:28px; color:#fff;">Whitelabel</div>
+          <div style="font-size:13px; color:#9DB1A5; margin-top:2px;">Ship it under your own brand</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="border-top:1px solid #E7E3DA; background:rgba(255,255,255,0.5);">
+    <div class="foot-grid" style="max-width:1240px; margin:0 auto; padding:56px 32px 40px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px;">
+      <div>
+        <div style="display:flex; align-items:center; gap:11px;">
+          <span style="display:grid; grid-template-columns:repeat(3,5px); grid-template-rows:repeat(3,5px); gap:2px;">
+            <span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span>
+            <span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span>
+            <span style="background:var(--accent,#138A5E);width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span><span style="background:#1B1A17;width:5px;height:5px;border-radius:1px;"></span>
+          </span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.02em;">MiniCal</span>
+        </div>
+        <p style="font-size:14px; color:#6F6E66; line-height:1.55; margin:16px 0 0; max-width:280px;">The whitelabel, AI-powered PMS for property managers, hotel chains, and franchises.</p>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#A6A498; margin-bottom:14px;">Product</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="https://www.minical.io/pricing.html" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Pricing</a>
+          <a href="https://www.minical.io/partners.html" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Partners</a>
+          <a href="http://demo.minical.io" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Live demo</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#A6A498; margin-bottom:14px;">Account</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="http://web.minical.io/signup" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Sign up</a>
+          <a href="http://web.minical.io/auth/login" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Log in</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#A6A498; margin-bottom:14px;">Community</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="https://discord.gg/a7B7RXZ3w5" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Discord</a>
+          <a href="mailto:hello@minical.io" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid #E7E3DA;">
+      <div style="max-width:1240px; margin:0 auto; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <span style="font-size:13px; color:#9A988E;">&copy; 2026 MiniCal</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#9A988E;">Build your own PMS brand.</span>
       </div>
     </div>
   </footer>
-
-  <!-- ======== VANILLA JS ======== -->
-  <script>
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('menu-icon-open');
-    const iconClose = document.getElementById('menu-icon-close');
-
-    menuBtn.addEventListener('click', () => {
-      const isOpen = !mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden');
-      iconOpen.classList.toggle('hidden');
-      iconClose.classList.toggle('hidden');
-    });
-
-    // Sticky header with glassmorphism
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('header-scrolled');
-      } else {
-        header.classList.remove('header-scrolled');
-      }
-    });
-
-    // Scroll reveal
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-  </script>
-
+</div>
 </body>
 </html>
