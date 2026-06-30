@@ -41,35 +41,45 @@ Find the **Account ID** in the dashboard URL
 
 ## Deploy
 
-From the repo root:
+Confirmed Pages settings:
+
+| Setting            | Value                                   |
+| ------------------ | --------------------------------------- |
+| Project name       | `minical-homepage`                      |
+| Production branch  | `master`                                |
+| Source             | **Direct Upload** (no Git integration)  |
+| Build step         | none (static)                           |
+
+> Because the project is **direct upload**, merging to GitHub `master` does
+> **not** auto-deploy. Every deploy is a manual `wrangler pages deploy`.
+
+### ⚠️ Never deploy the raw working directory
+
+`wrangler pages deploy <dir>` uploads **every** file in `<dir>` as a public
+asset. Deploying the repo root directly would publish `.env` (your API token!)
+to `https://www.minical.io/.env`. **Always deploy from a clean export of
+tracked files only.**
 
 ```bash
 # load CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID
 set -a; source .env; set +a
 
-# confirm the exact Pages project name first
-npx wrangler pages project list
+# 1. export ONLY tracked files (no .env, no .git, no stray files) to a temp dir
+rm -rf /tmp/minical-pub && mkdir -p /tmp/minical-pub
+git archive --format=tar master | tar -x -C /tmp/minical-pub
 
-# deploy the whole repo (static root) to production
-npx wrangler pages deploy . \
-  --project-name=<minical-pages-project> \
-  --branch=main
+# 2. deploy that clean dir to PRODUCTION (www.minical.io)
+npx wrangler pages deploy /tmp/minical-pub \
+  --project-name=minical-homepage \
+  --branch=master
 ```
 
 Notes:
 
-- **`.`** is the publish directory — the site is served straight from the repo
-  root (`index.html`, `partners.html`, `assets/`, …). Wrangler skips `.git`.
-- **`--branch`** must match the project's **production branch** to publish to
-  `www.minical.io`. Any other branch name creates a **preview** deployment on a
-  `*.pages.dev` URL instead (handy for testing before going live).
-- The project name is shown by `wrangler pages project list`; fill it into the
-  command above (and consider pinning it here once confirmed).
-
-## Auto-deploy on push (if Git integration is enabled)
-
-If the Pages project is connected to the GitHub repo
-(`minical/minical-homepage`) via Cloudflare's Git integration, then **merging to
-the production branch (`master`) auto-deploys** — no manual `wrangler` command
-needed. Use the manual `wrangler pages deploy` above for out-of-band or
-local-content deploys.
+- **`--branch=master`** matches the production branch, so this updates
+  `www.minical.io`. Use **any other branch name** (e.g. `--branch=preview`) to
+  get a throwaway **preview** deployment on a `*.pages.dev` URL to test before
+  going live — same clean-export step applies.
+- Swap `master` in the `git archive` line for any ref/branch you want to ship.
+- Roll back instantly from the dashboard: **Workers & Pages → minical-homepage →
+  Deployments → (older deployment) → Rollback**.
