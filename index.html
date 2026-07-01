@@ -44,6 +44,39 @@
     .foot-link { transition: color .15s ease; }
     .foot-link:hover { color: #1B1A17; }
 
+    /* ---- logo marquee ---- */
+    .logo-marquee {
+      position: relative;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+    }
+    .logo-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      gap: 72px;
+      animation: logo-scroll 55s linear infinite;
+    }
+    .logo-marquee:hover .logo-track { animation-play-state: paused; }
+    .logo-track img {
+      height: 38px;
+      width: auto;
+      max-width: 170px;
+      object-fit: contain;
+      opacity: 0.55;
+      filter: grayscale(100%);
+      transition: opacity .2s ease, filter .2s ease;
+    }
+    .logo-track img:hover { opacity: 1; filter: grayscale(0); }
+    @keyframes logo-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo-track { animation: none; flex-wrap: wrap; justify-content: center; }
+    }
+
     /* ---- responsive ---- */
     @media (max-width: 960px) {
       .hero-grid { grid-template-columns: 1fr !important; gap: 64px !important; }
@@ -248,12 +281,44 @@
 
   <!-- ===== TRUST ===== -->
   <section style="max-width:1240px; margin:0 auto; padding:46px 32px;">
-    <div style="text-align:center; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#9A988E; margin-bottom:26px;">Trusted by PMS partners worldwide</div>
-    <div style="display:flex; align-items:center; justify-content:center; gap:18px 56px; flex-wrap:wrap;">
-      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">Lodgeware</span>
-      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">VacationsPal</span>
-      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">Roomsy</span>
-      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">Hoteli</span>
+    <div style="text-align:center; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#9A988E; margin-bottom:30px;">Trusted by PMS partners worldwide</div>
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <!-- set 1 -->
+        <img src="./assets/img/lodgeware.png" alt="Lodgeware">
+        <img src="./assets/img/vacationspal.png" alt="VacationsPal">
+        <img src="./assets/img/roomsy.png" alt="Roomsy">
+        <img src="./assets/img/hoteli.png" alt="Hoteli Tech">
+        <img src="./assets/img/revsol.png" alt="Revsol">
+        <img src="./assets/img/emforl.png" alt="Emforl">
+        <img src="./assets/img/helping-hotels.png" alt="Helping Hotels">
+        <img src="./assets/img/the_Lobby_logo.jpg" alt="The Lobby">
+        <img src="./assets/img/roamcampaground.png" alt="Roam Campground">
+        <img src="./assets/img/tcounter.png" alt="TCounter">
+        <img src="./assets/img/roommarketing.png" alt="Room Marketing">
+        <img src="./assets/img/accoclix.png" alt="AccoClix">
+        <img src="./assets/img/bendlala.png" alt="Bendlala">
+        <img src="./assets/img/roomthai.png" alt="RoomThai">
+        <img src="https://gogies.net/logo.png" alt="Gogies">
+        <img src="https://web.minical.io/images/standouthotel_logo.png" alt="Stand Out Hotels">
+        <!-- set 2 (duplicate for seamless loop) -->
+        <img src="./assets/img/lodgeware.png" alt="" aria-hidden="true">
+        <img src="./assets/img/vacationspal.png" alt="" aria-hidden="true">
+        <img src="./assets/img/roomsy.png" alt="" aria-hidden="true">
+        <img src="./assets/img/hoteli.png" alt="" aria-hidden="true">
+        <img src="./assets/img/revsol.png" alt="" aria-hidden="true">
+        <img src="./assets/img/emforl.png" alt="" aria-hidden="true">
+        <img src="./assets/img/helping-hotels.png" alt="" aria-hidden="true">
+        <img src="./assets/img/the_Lobby_logo.jpg" alt="" aria-hidden="true">
+        <img src="./assets/img/roamcampaground.png" alt="" aria-hidden="true">
+        <img src="./assets/img/tcounter.png" alt="" aria-hidden="true">
+        <img src="./assets/img/roommarketing.png" alt="" aria-hidden="true">
+        <img src="./assets/img/accoclix.png" alt="" aria-hidden="true">
+        <img src="./assets/img/bendlala.png" alt="" aria-hidden="true">
+        <img src="./assets/img/roomthai.png" alt="" aria-hidden="true">
+        <img src="https://gogies.net/logo.png" alt="" aria-hidden="true">
+        <img src="https://web.minical.io/images/standouthotel_logo.png" alt="" aria-hidden="true">
+      </div>
     </div>
   </section>
 
