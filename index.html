@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MiniCal — Multi-Property Management Platform Powered by AI</title>
   <link rel="icon" href="assets/img/Icon.png">
+  <!-- Calendly popup widget -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>window.CALENDLY_PARTNER_URL = "https://calendly.com/roomsy/minical-partnership";</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -96,7 +100,7 @@
           MiniCal is the Property Management Software built for control. Launch your own branded platform for hotel chains, franchises, and PMS companies.
         </p>
         <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:34px;">
-          <a href="partners.html" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
+          <a href="" onclick="Calendly.initPopupWidget({url: window.CALENDLY_PARTNER_URL}); return false;" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
             Become a partner
             <span style="font-family:'JetBrains Mono',monospace;">&rarr;</span>
           </a>
