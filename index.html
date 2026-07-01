@@ -3,12 +3,82 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MiniCal — Multi-Property Management Platform Powered by AI</title>
+  <title>MiniCal — AI-First Multi-Property Hotel Management Platform (PMS)</title>
+  <meta name="description" content="MiniCal is an AI-first, multi-property hotel management platform (PMS) you can run under your own brand — with a channel manager, booking engine, payments, and 70+ extensions.">
+  <link rel="canonical" href="https://www.minical.io/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#138A5E">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MiniCal">
+  <meta property="og:title" content="MiniCal — AI-First Multi-Property Hotel Management Platform (PMS)">
+  <meta property="og:description" content="An AI-first, multi-property hotel PMS you can run under your own brand — channel manager, booking engine, payments, and 70+ extensions.">
+  <meta property="og:url" content="https://www.minical.io/">
+  <meta property="og:image" content="https://www.minical.io/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MiniCal — AI-first hotel management platform">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MiniCal — AI-First Multi-Property Hotel Management Platform (PMS)">
+  <meta name="twitter:description" content="An AI-first, multi-property hotel PMS you can run under your own brand — channel manager, booking engine, payments, and 70+ extensions.">
+  <meta name="twitter:image" content="https://www.minical.io/assets/img/og-image.png">
+
   <link rel="icon" href="assets/img/Icon.png">
-  <!-- Calendly popup widget -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script>window.CALENDLY_PARTNER_URL = "https://calendly.com/roomsy/minical-partnership";</script>
+  <link rel="apple-touch-icon" href="assets/img/Icon.png">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.minical.io/#organization",
+        "name": "MiniCal",
+        "url": "https://www.minical.io/",
+        "logo": "https://www.minical.io/assets/img/minical-logo.png"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.minical.io/#website",
+        "url": "https://www.minical.io/",
+        "name": "MiniCal",
+        "publisher": { "@id": "https://www.minical.io/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "MiniCal",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "AI-first, multi-property hotel management platform (PMS) with channel manager, booking engine, payments, and 70+ extensions — available under your own brand.",
+        "url": "https://www.minical.io/",
+        "publisher": { "@id": "https://www.minical.io/#organization" }
+      }
+    ]
+  }
+  </script>
+  <!-- Calendly popup widget (lazy-loaded on first interaction to keep initial page load light) -->
+  <script>
+    window.CALENDLY_PARTNER_URL = "https://calendly.com/roomsy/minical-partnership";
+    window.openCalendly = function (url) {
+      url = url || window.CALENDLY_PARTNER_URL;
+      function open() { window.Calendly.initPopupWidget({ url: url }); }
+      if (window.Calendly) { open(); return; }
+      if (window.__calendlyLoading) return;
+      window.__calendlyLoading = true;
+      var css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = "https://assets.calendly.com/assets/external/widget.css";
+      document.head.appendChild(css);
+      var js = document.createElement("script");
+      js.src = "https://assets.calendly.com/assets/external/widget.js";
+      js.onload = open;
+      document.head.appendChild(js);
+    };
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -114,7 +184,7 @@
         <a href="partners.html" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:500;">Partners</a>
       </nav>
       <div class="nav-actions" style="display:flex; align-items:center; gap:14px;">
-        <a href="http://web.minical.io/auth/login" class="signin" style="font-size:15px; color:#1B1A17; text-decoration:none; font-weight:600;">Log In</a>
+        <a href="https://web.minical.io/auth/login" class="signin" style="font-size:15px; color:#1B1A17; text-decoration:none; font-weight:600;">Log In</a>
       </div>
     </div>
   </header>
@@ -131,14 +201,14 @@
           MiniCal is the Property Management Software built for control. Launch your own branded platform for hotel chains, franchises, and PMS companies.
         </p>
         <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:34px;">
-          <a href="" onclick="Calendly.initPopupWidget({url: window.CALENDLY_PARTNER_URL}); return false;" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
+          <a href="" onclick="openCalendly(); return false;" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
             Become a partner
             <span style="font-family:'JetBrains Mono',monospace;">&rarr;</span>
           </a>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:28px; margin-top:40px;">
           <div>
-            <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:26px; letter-spacing:-0.02em;">50+</div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:26px; letter-spacing:-0.02em;">70+</div>
             <div style="font-size:13px; color:#6F6E66; margin-top:2px;">Extensions &amp; integrations</div>
           </div>
           <div style="width:1px; background:#DDD9CF;"></div>
@@ -429,7 +499,7 @@
           Your brand. Your rules. Your platform.
         </h2>
         <p style="font-size:18px; line-height:1.55; color:#56554E; margin:20px 0 0;">
-          MiniCal is whitelabel from the ground up. Run one boutique or a thousand-key franchise on the same foundation &mdash; with granular roles, per-property settings, and 50+ extensions you switch on as you grow.
+          MiniCal is whitelabel from the ground up. Run one boutique or a thousand-key franchise on the same foundation &mdash; with granular roles, per-property settings, and 70+ extensions you switch on as you grow.
         </p>
         <div style="display:flex; flex-direction:column; gap:14px; margin-top:30px;">
           <div style="display:flex; align-items:flex-start; gap:13px;">
@@ -456,7 +526,7 @@
           <div style="display:flex; align-items:flex-start; gap:13px;">
             <span style="flex:none; margin-top:3px; width:20px; height:20px; border-radius:6px; background:#E1EFE8; color:var(--accent,#138A5E); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700;">&#10003;</span>
             <div>
-              <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px;">50+ extensions</span>
+              <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:16px;">70+ extensions</span>
               <span style="font-size:16px; color:#6F6E66;"> &mdash; switch on payments, channels, and tools as you scale</span>
             </div>
           </div>
@@ -529,7 +599,7 @@
         </div>
         <div class="feat-card" style="border:1px solid #ECE8DF; border-radius:14px; padding:28px; background:#FDFCFA;">
           <div style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#B0AEA2;">06</div>
-          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; letter-spacing:-0.01em; margin:16px 0 0;">50+ Extensions</h3>
+          <h3 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:19px; letter-spacing:-0.01em; margin:16px 0 0;">70+ Extensions</h3>
           <p style="font-size:14.5px; line-height:1.5; color:#6F6E66; margin:9px 0 0;">Connect payment gateways, channel managers, and more from a growing library.</p>
         </div>
       </div>
@@ -579,7 +649,7 @@
         <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(30px,3.6vw,46px); line-height:1.06; letter-spacing:-0.03em; color:#fff; margin:0;">Build your PMS brand on MiniCal.</h2>
         <p style="font-size:17px; color:#A9BDB1; line-height:1.55; margin:18px 0 0; max-width:460px;">Partner with us to launch your own whitelabel PMS, backed by a team that helps you ship, grow, and support your customers.</p>
         <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:30px;">
-          <a href="" onclick="Calendly.initPopupWidget({url: window.CALENDLY_PARTNER_URL}); return false;" class="btn-mint" style="background:#6FE3B0; color:#13231D; font-weight:700; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px;">Book a call — become our partner</a>
+          <a href="" onclick="openCalendly(); return false;" class="btn-mint" style="background:#6FE3B0; color:#13231D; font-weight:700; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px;">Book a call — become our partner</a>
         </div>
       </div>
       <div style="position:relative; display:flex; flex-direction:column; gap:12px;">
@@ -610,12 +680,13 @@
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="features.html" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Features</a>
           <a href="partners.html" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Partners</a>
+          <a href="faq.html" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">FAQ</a>
         </div>
       </div>
       <div>
         <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#A6A498; margin-bottom:14px;">Account</div>
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="http://web.minical.io/auth/login" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Log in</a>
+          <a href="https://web.minical.io/auth/login" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Log in</a>
         </div>
       </div>
       <div>
