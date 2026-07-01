@@ -15,23 +15,41 @@
   <meta property="og:title" content="Partners — White-Label Hotel PMS | MiniCal">
   <meta property="og:description" content="Partner with MiniCal to offer an AI-first, white-label hotel PMS under your own brand. Join our reseller and technology partner network.">
   <meta property="og:url" content="https://www.minical.io/partners.html">
-  <meta property="og:image" content="https://www.minical.io/assets/img/hero.png">
+  <meta property="og:image" content="https://www.minical.io/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MiniCal — AI-first hotel management platform">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Partners — White-Label Hotel PMS | MiniCal">
   <meta name="twitter:description" content="Partner with MiniCal to offer an AI-first, white-label hotel PMS under your own brand. Join our reseller and technology partner network.">
-  <meta name="twitter:image" content="https://www.minical.io/assets/img/hero.png">
+  <meta name="twitter:image" content="https://www.minical.io/assets/img/og-image.png">
 
   <link rel="icon" href="assets/img/Icon.png">
   <link rel="apple-touch-icon" href="assets/img/Icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <!-- Calendly popup widget -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <script>window.CALENDLY_PARTNER_URL = "https://calendly.com/roomsy/minical-partnership";</script>
+  <!-- Calendly popup widget (lazy-loaded on first interaction to keep initial page load light) -->
+  <script>
+    window.CALENDLY_PARTNER_URL = "https://calendly.com/roomsy/minical-partnership";
+    window.openCalendly = function (url) {
+      url = url || window.CALENDLY_PARTNER_URL;
+      function open() { window.Calendly.initPopupWidget({ url: url }); }
+      if (window.Calendly) { open(); return; }
+      if (window.__calendlyLoading) return;
+      window.__calendlyLoading = true;
+      var css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = "https://assets.calendly.com/assets/external/widget.css";
+      document.head.appendChild(css);
+      var js = document.createElement("script");
+      js.src = "https://assets.calendly.com/assets/external/widget.js";
+      js.onload = open;
+      document.head.appendChild(js);
+    };
+  </script>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JMCT393M0"></script>
   <script>
@@ -87,7 +105,7 @@
         <a href="partners.html" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:600; color:#1B1A17;">Partners</a>
       </nav>
       <div class="nav-actions" style="display:flex; align-items:center; gap:14px;">
-        <a href="http://web.minical.io/auth/login" class="signin" style="font-size:15px; color:#1B1A17; text-decoration:none; font-weight:600;">Log In</a>
+        <a href="https://web.minical.io/auth/login" class="signin" style="font-size:15px; color:#1B1A17; text-decoration:none; font-weight:600;">Log In</a>
       </div>
     </div>
   </header>
@@ -104,7 +122,7 @@
         From boutique operators to global PMS companies — these teams run their own branded platform on MiniCal.
       </p>
       <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:34px;">
-        <a href="" onclick="Calendly.initPopupWidget({url: window.CALENDLY_PARTNER_URL}); return false;" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
+        <a href="" onclick="openCalendly(); return false;" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
           Become a partner
           <span style="font-family:'JetBrains Mono',monospace;">&rarr;</span>
         </a>
@@ -232,7 +250,7 @@
         <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(30px,3.6vw,46px); line-height:1.06; letter-spacing:-0.03em; color:#fff; margin:0;">Launch your PMS brand on MiniCal.</h2>
         <p style="font-size:17px; color:#A9BDB1; line-height:1.55; margin:18px auto 0; max-width:460px;">Join the partners building their own whitelabel platform — your brand, your domain, powered invisibly by MiniCal.</p>
         <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:30px;">
-          <a href="" onclick="Calendly.initPopupWidget({url: window.CALENDLY_PARTNER_URL}); return false;" class="btn-mint" style="background:#6FE3B0; color:#13231D; font-weight:700; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px;">Become a partner</a>
+          <a href="" onclick="openCalendly(); return false;" class="btn-mint" style="background:#6FE3B0; color:#13231D; font-weight:700; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px;">Become a partner</a>
         </div>
       </div>
     </div>
@@ -253,14 +271,15 @@
         <div style="display:flex; flex-direction:column; gap:10px;">
           <a href="features.html" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Features</a>
           <a href="partners.html" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Partners</a>
-          <a href="http://demo.minical.io" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Live demo</a>
+          <a href="faq.html" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">FAQ</a>
+          <a href="https://demo.minical.io" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Live demo</a>
         </div>
       </div>
       <div>
         <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#A6A498; margin-bottom:14px;">Account</div>
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="http://web.minical.io/signup" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Sign up</a>
-          <a href="http://web.minical.io/auth/login" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Log in</a>
+          <a href="https://web.minical.io/signup" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Sign up</a>
+          <a href="https://web.minical.io/auth/login" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Log in</a>
         </div>
       </div>
       <div>
