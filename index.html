@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MiniCal — Multi-Property Management Platform Powered by AI</title>
   <link rel="icon" href="assets/img/Icon.png">
+  <!-- Calendly popup widget -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>window.CALENDLY_PARTNER_URL = "https://calendly.com/roomsy/minical-partnership";</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -43,6 +47,36 @@
     .integ-card:hover { border-color: #D8D4CA; }
     .foot-link { transition: color .15s ease; }
     .foot-link:hover { color: #1B1A17; }
+
+    /* ---- rotating logo slots ---- */
+    .logo-slots {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      gap: 32px 56px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .logo-slot {
+      position: relative;
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-slot img {
+      position: absolute;
+      max-height: 76px;
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity .6s ease;
+    }
+    .logo-slot img.is-active { opacity: 1; }
+    @media (max-width: 640px) {
+      .logo-slots { grid-template-columns: repeat(2, 1fr); gap: 36px 40px; max-width: 440px; }
+    }
 
     /* ---- responsive ---- */
     @media (max-width: 960px) {
@@ -96,7 +130,7 @@
           MiniCal is the Property Management Software built for control. Launch your own branded platform for hotel chains, franchises, and PMS companies.
         </p>
         <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:34px;">
-          <a href="partners.html" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
+          <a href="" onclick="Calendly.initPopupWidget({url: window.CALENDLY_PARTNER_URL}); return false;" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
             Become a partner
             <span style="font-family:'JetBrains Mono',monospace;">&rarr;</span>
           </a>
@@ -248,14 +282,71 @@
 
   <!-- ===== TRUST ===== -->
   <section style="max-width:1240px; margin:0 auto; padding:46px 32px;">
-    <div style="text-align:center; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#9A988E; margin-bottom:26px;">Trusted by PMS partners worldwide</div>
-    <div style="display:flex; align-items:center; justify-content:center; gap:18px 56px; flex-wrap:wrap;">
-      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">Lodgeware</span>
-      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">VacationsPal</span>
-      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">Roomsy</span>
-      <span style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:21px; letter-spacing:-0.01em; color:#A9A79C;">Hoteli</span>
+    <div style="text-align:center; font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#9A988E; margin-bottom:30px;">Trusted by PMS partners worldwide</div>
+    <div class="logo-slots" id="logoSlots">
+      <div class="logo-slot" data-group="0"></div>
+      <div class="logo-slot" data-group="1"></div>
+      <div class="logo-slot" data-group="2"></div>
+      <div class="logo-slot" data-group="3"></div>
     </div>
   </section>
+  <script>
+    (function () {
+      // Each slot cycles through its own pool, so no logo appears in two slots at once.
+      var groups = [
+        [
+          { src: "./assets/img/lodgeware.png",    alt: "Lodgeware" },
+          { src: "./assets/img/revsol.png",       alt: "Revsol" },
+          { src: "./assets/img/roamcampaground.png", alt: "Roam Campground" },
+          { src: "./assets/img/bendlala.png",     alt: "Bendlala" }
+        ],
+        [
+          { src: "./assets/img/vacationspal.png", alt: "VacationsPal" },
+          { src: "./assets/img/emforl.png",       alt: "Emforl" },
+          { src: "./assets/img/tcounter.png",     alt: "TCounter" },
+          { src: "./assets/img/roomthai.png",     alt: "RoomThai" }
+        ],
+        [
+          { src: "./assets/img/roomsy.png",         alt: "Roomsy" },
+          { src: "./assets/img/helping-hotels.png", alt: "Helping Hotels" },
+          { src: "./assets/img/roommarketing.png",  alt: "Room Marketing" },
+          { src: "https://gogies.net/logo.png",     alt: "Gogies" }
+        ],
+        [
+          { src: "./assets/img/hoteli.png",       alt: "Hoteli Tech" },
+          { src: "./assets/img/the_Lobby_logo.jpg", alt: "The Lobby" },
+          { src: "./assets/img/accoclix.png",     alt: "AccoClix" },
+          { src: "https://web.minical.io/images/standouthotel_logo.png", alt: "Stand Out Hotels" }
+        ]
+      ];
+
+      var slots = document.querySelectorAll("#logoSlots .logo-slot");
+      slots.forEach(function (slot, i) {
+        var pool = groups[i];
+        // Preload each logo as a stacked <img>; only one is active at a time.
+        var imgs = pool.map(function (logo, j) {
+          var img = document.createElement("img");
+          img.src = logo.src;
+          img.alt = logo.alt;
+          if (j === 0) img.classList.add("is-active");
+          slot.appendChild(img);
+          return img;
+        });
+
+        var current = 0;
+        function rotate() {
+          imgs[current].classList.remove("is-active");
+          current = (current + 1) % imgs.length;
+          imgs[current].classList.add("is-active");
+        }
+        // Stagger each slot so they don't all flip together, and vary the pace.
+        var delay = 3200 + i * 900;
+        setTimeout(function () {
+          setInterval(rotate, delay);
+        }, i * 1100);
+      });
+    })();
+  </script>
 
   <!-- ===== AI SECTION ===== -->
   <section id="ai" style="background:#13231D; color:#EAF1EC; position:relative; overflow:hidden;">
