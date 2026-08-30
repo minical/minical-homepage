@@ -430,6 +430,15 @@ Description:this is responsive css file for mobile and tablet layout
         width: auto !important;
     }
 
+     .main-card {
+        max-width: 90%;
+        margin-top: 80px;
+    }
+
+    .partners_div {
+        width: 100%;
+    }
+
 }
 
 /*
