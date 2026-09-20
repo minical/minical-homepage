@@ -82,14 +82,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JMCT393M0"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-5JMCT393M0');
-  </script>
+  <!-- Analytics: GA4 + first-party visitor/session tracking (see ANALYTICS.md).
+       Loaded synchronously so the visitor and session ids exist before the first page_view. -->
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <script src="assets/js/analytics.js"></script>
   <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -184,7 +180,7 @@
         <a href="partners.html" class="nav-link" style="font-size:15px; text-decoration:none; font-weight:500;">Partners</a>
       </nav>
       <div class="nav-actions" style="display:flex; align-items:center; gap:14px;">
-        <a href="https://web.minical.io/auth/login" class="signin" style="font-size:15px; color:#1B1A17; text-decoration:none; font-weight:600;">Log In</a>
+        <a data-mc-cta="header_login" href="https://web.minical.io/auth/login" class="signin" style="font-size:15px; color:#1B1A17; text-decoration:none; font-weight:600;">Log In</a>
       </div>
     </div>
   </header>
@@ -201,7 +197,7 @@
           MiniCal is the Property Management Software built for control. Launch your own branded platform for hotel chains, franchises, and PMS companies.
         </p>
         <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:34px;">
-          <a href="" onclick="openCalendly(); return false;" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
+          <a data-mc-cta="hero_book_call" href="" onclick="openCalendly(); return false;" class="btn-accent" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#138A5E); color:#fff; font-weight:600; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px; box-shadow:0 1px 2px rgba(0,0,0,0.12);">
             Become a partner
             <span style="font-family:'JetBrains Mono',monospace;">&rarr;</span>
           </a>
@@ -649,7 +645,7 @@
         <h2 style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(30px,3.6vw,46px); line-height:1.06; letter-spacing:-0.03em; color:#fff; margin:0;">Build your PMS brand on MiniCal.</h2>
         <p style="font-size:17px; color:#A9BDB1; line-height:1.55; margin:18px 0 0; max-width:460px;">Partner with us to launch your own whitelabel PMS, backed by a team that helps you ship, grow, and support your customers.</p>
         <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:30px;">
-          <a href="" onclick="openCalendly(); return false;" class="btn-mint" style="background:#6FE3B0; color:#13231D; font-weight:700; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px;">Book a call — become our partner</a>
+          <a data-mc-cta="home_cta_book_call" href="" onclick="openCalendly(); return false;" class="btn-mint" style="background:#6FE3B0; color:#13231D; font-weight:700; font-size:16px; text-decoration:none; padding:15px 26px; border-radius:11px;">Book a call — become our partner</a>
         </div>
       </div>
       <div style="position:relative; display:flex; flex-direction:column; gap:12px;">
@@ -686,13 +682,13 @@
       <div>
         <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#A6A498; margin-bottom:14px;">Account</div>
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="https://web.minical.io/auth/login" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Log in</a>
+          <a data-mc-cta="footer_login" href="https://web.minical.io/auth/login" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Log in</a>
         </div>
       </div>
       <div>
         <div style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:#A6A498; margin-bottom:14px;">Community</div>
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <a href="mailto:support@minical.io" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Contact</a>
+          <a data-mc-cta="footer_contact_email" href="mailto:support@minical.io" class="foot-link" style="font-size:14px; color:#46453F; text-decoration:none;">Contact</a>
         </div>
       </div>
     </div>
